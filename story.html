@@ -9,7 +9,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
 
     <style>
 
@@ -20,338 +22,364 @@
         body {
             margin: 0;
             min-height: 100vh;
+
             background:
-                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(245,215,215,0.45), transparent 30%),
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8), transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(247,210,207,0.45), transparent 30%),
                 #f8eee9;
-            color: #6f5158;
+
+            color: #76545d;
             font-family: "Cormorant Garamond", serif;
-            overflow-x: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 40px 20px;
         }
 
-        /* DECORATIONS */
+        /* FLOATING DECORATIONS */
 
         .decor {
             position: fixed;
             pointer-events: none;
-            color: rgba(170, 120, 130, 0.35);
-            font-size: 22px;
-            z-index: 0;
+            opacity: 0.6;
+            font-size: 20px;
         }
 
-        .one {
+        .heart1 {
             top: 8%;
             left: 8%;
         }
 
-        .two {
-            top: 18%;
+        .heart2 {
+            top: 15%;
             right: 10%;
         }
 
-        .three {
+        .star1 {
             bottom: 12%;
             left: 12%;
         }
 
-        .four {
+        .star2 {
             bottom: 8%;
-            right: 8%;
+            right: 12%;
         }
 
+        /* MAIN */
 
-        /* INTRO */
-
-        #intro {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .intro-content {
+        .page {
+            width: 100%;
+            max-width: 700px;
             text-align: center;
         }
 
-        .intro-small {
-            font-size: 18px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #a27c83;
-            margin-bottom: 12px;
-        }
-
-        .intro-title {
+        .title {
             font-family: "Great Vibes", cursive;
-            font-size: clamp(55px, 10vw, 95px);
-            color: #76545d;
-            margin: 0;
-            font-weight: 400;
+            font-size: clamp(42px, 8vw, 68px);
+            color: #9a6871;
+            margin-bottom: 8px;
         }
 
-        .intro-subtitle {
-            font-size: 20px;
-            margin-top: 8px;
-            margin-bottom: 35px;
+        .subtitle {
+            font-size: 17px;
+            letter-spacing: 3px;
+            color: #a98288;
+            margin-bottom: 30px;
         }
-
 
         /* DIARY */
 
         .diary {
             width: min(360px, 82vw);
             height: 470px;
+
             position: relative;
             cursor: pointer;
+
             perspective: 1500px;
+
             margin: auto;
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease;
         }
 
-        .book {
+        /* THIS IS THE LITTLE MOVEMENT YOU WANTED */
+
+        .diary:hover {
+            transform: translateY(-7px) rotate(-0.5deg);
+            filter: brightness(1.02);
+        }
+
+        /* DIARY PAGES */
+
+        .diary-pages {
             position: absolute;
             inset: 0;
-            background: #fffaf6;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(91,61,68,0.15);
+
+            background: #fffaf7;
+
+            border-radius: 6px 16px 16px 6px;
+
+            box-shadow:
+                8px 10px 25px rgba(100, 70, 75, 0.18),
+                inset -5px 0 0 rgba(210, 180, 180, 0.18);
+
             overflow: hidden;
+
+            padding: 38px 30px;
+
+            text-align: left;
         }
 
-        .book::after {
+        /* PAGE LINES */
+
+        .diary-pages::before {
             content: "";
+
             position: absolute;
-            left: 50%;
-            top: 15px;
-            bottom: 15px;
-            width: 1px;
-            background: #ead9d3;
+            inset: 0;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0px,
+                    transparent 31px,
+                    rgba(190, 160, 160, 0.18) 32px
+                );
+
+            pointer-events: none;
         }
+
+        /* COVER */
 
         .diary-cover {
             position: absolute;
             inset: 0;
 
+            z-index: 5;
+
             background:
                 linear-gradient(
                     135deg,
-                    #e8caca,
-                    #d8b2b2
+                    #f3c8c8,
+                    #eab5ba 55%,
+                    #d99fa8
                 );
 
-            border-radius: 12px 18px 18px 12px;
+            border-radius: 6px 16px 16px 6px;
 
             box-shadow:
-                0 20px 40px rgba(91,61,68,0.22),
-                inset 4px 0 0 rgba(255,255,255,0.18);
+                8px 10px 25px rgba(100, 70, 75, 0.2);
 
-            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
 
             transform-origin: left center;
 
             transition:
-                transform 1.4s cubic-bezier(.77,0,.18,1);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            backface-visibility: hidden;
+                transform 1s cubic-bezier(.77,0,.18,1);
         }
 
-        /* COVER BORDER */
-
-        .diary-cover::before {
+        .diary-cover::after {
             content: "";
 
             position: absolute;
-            inset: 18px;
+            inset: 14px;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.55);
+            border: 1px solid rgba(255,255,255,0.55);
 
-            border-radius:
-                8px 13px 13px 8px;
-        }
+            border-radius: 4px 12px 12px 4px;
 
-        /* COVER CONTENT */
-
-        .cover-content {
-            text-align: center;
-            color: #fffaf8;
-            padding: 35px;
-            position: relative;
-            z-index: 2;
+            pointer-events: none;
         }
 
         .cover-title {
             font-family: "Great Vibes", cursive;
-            font-size: 62px;
-            line-height: 1.1;
-            text-shadow:
-                0 2px 5px rgba(100,70,75,0.12);
-        }
+            font-size: 52px;
+            color: #fffaf8;
 
-        .cover-subtitle {
-            margin-top: 20px;
-            font-size: 16px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
+            margin: 0 0 8px;
 
-        .cover-names {
-            margin-top: 35px;
-            font-size: 17px;
-            letter-spacing: 3px;
-        }
-
-        .click-hint {
-            margin-top: 50px;
-            font-size: 14px;
-            letter-spacing: 1px;
-            opacity: 0.9;
-        }
-
-
-        /* OPEN ANIMATION */
-
-        .opened .diary-cover {
-            transform: rotateY(-145deg);
-        }
-
-
-        /* STORY AREA */
-
-        #storyArea {
-            display: none;
-            min-height: 100vh;
-            padding: 50px 20px;
             position: relative;
             z-index: 2;
         }
 
-        .story-heading {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        .cover-subtitle {
+            font-size: 16px;
+            letter-spacing: 5px;
+            color: #fff8f5;
 
-        .story-heading h1 {
-            font-family: "Great Vibes", cursive;
-            font-size: clamp(48px, 9vw, 72px);
-            font-weight: 400;
-            color: #76545d;
-            margin: 0;
-        }
+            margin-bottom: 28px;
 
-        .story-heading p {
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-
-        /* BOOK PAGES */
-
-        .book-pages {
-            width: min(1000px, 95vw);
-            min-height: 500px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            background: #fffaf6;
-
-            border-radius: 10px;
-
-            box-shadow:
-                0 20px 45px rgba(91,61,68,0.13);
-
-            overflow: hidden;
-        }
-
-        .page {
-            padding: clamp(30px, 5vw, 60px);
             position: relative;
+            z-index: 2;
         }
 
-        .page.left {
-            border-right: 1px solid #ead9d3;
-        }
-
-        .page-label {
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 13px;
-            color: #ad858b;
-            margin-bottom: 20px;
-        }
-
-        .page h2 {
+        .cover-names {
             font-family: "Great Vibes", cursive;
-            font-size: clamp(40px, 6vw, 58px);
-            font-weight: 400;
-            color: #76545d;
+            font-size: 27px;
+            color: #fffaf8;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .click-hint {
+            position: absolute;
+            bottom: 28px;
+
+            font-size: 14px;
+            letter-spacing: 2px;
+
+            color: rgba(255,255,255,0.85);
+
+            z-index: 2;
+        }
+
+        /* OPEN DIARY */
+
+        .diary.opened .diary-cover {
+            transform: rotateY(-145deg);
+        }
+
+        /* CONTENT */
+
+        .story-content {
+            position: absolute;
+            inset: 0;
+
+            z-index: 2;
+
+            padding: 40px 32px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chapter {
+            display: none;
+            height: 100%;
+
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .chapter.active {
+            display: flex;
+        }
+
+        .chapter-number {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #b18a91;
+
+            margin-bottom: 8px;
+        }
+
+        .chapter-title {
+            font-family: "Great Vibes", cursive;
+            font-size: 39px;
+            color: #9a6871;
+
             margin: 0 0 18px;
         }
 
-        .page p {
+        .chapter-text {
             font-size: 19px;
-            line-height: 1.7;
-            margin: 0;
+            line-height: 1.65;
+            color: #76545d;
         }
 
-        .page-decoration {
-            position: absolute;
-            bottom: 25px;
-            right: 30px;
-            font-size: 24px;
-            color: #c79ba1;
+        .chapter-text strong {
+            color: #9a6871;
         }
-
 
         /* CONTROLS */
 
         .controls {
-            width: min(1000px, 95vw);
-            margin: 25px auto 0;
+            position: absolute;
+
+            bottom: 18px;
+            left: 0;
+            right: 0;
 
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 15px;
 
-            gap: 18px;
+            z-index: 10;
+        }
+
+        .page-button {
+            border: none;
+
+            background: transparent;
+
+            color: #9a6871;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 18px;
+
+            cursor: pointer;
+
+            padding: 5px 10px;
+
+            transition: 0.2s ease;
+        }
+
+        .page-button:hover {
+            transform: translateY(-2px);
+            color: #76545d;
+        }
+
+        .page-number {
+            font-size: 14px;
+            color: #b18a91;
+        }
+
+        /* BOTTOM BUTTONS */
+
+        .navigation {
+            margin-top: 32px;
+
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+
             flex-wrap: wrap;
         }
 
         .button {
             display: inline-block;
 
-            padding: 13px 27px;
+            padding: 13px 25px;
 
-            border-radius: 40px;
+            background: linear-gradient(
+                135deg,
+                #fff8f4,
+                #f7e3df
+            );
 
             border: 1px solid #cba5a7;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff8f4,
-                    #f7e3df
-                );
+            border-radius: 40px;
 
             color: #76545d;
 
-            text-decoration: none;
-
-            font-family:
-                "Cormorant Garamond",
-                serif;
-
+            font-family: "Cormorant Garamond", serif;
             font-size: 17px;
 
-            cursor: pointer;
+            text-decoration: none;
 
             box-shadow:
                 0 6px 15px rgba(100,70,75,0.10),
@@ -363,149 +391,204 @@
         .button:hover {
             transform: translateY(-3px);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #fffaf7,
-                    #f3deda
-                );
+            background: linear-gradient(
+                135deg,
+                #fffaf7,
+                #f3deda
+            );
 
             box-shadow:
                 0 9px 20px rgba(100,70,75,0.15);
         }
 
-        .page-number {
-            font-size: 17px;
-            color: #927178;
-            min-width: 100px;
-            text-align: center;
-        }
-
-
-        /* FINAL MESSAGE */
-
-        .final-message {
-            text-align: center;
-            margin: 45px auto 20px;
-            max-width: 700px;
-        }
-
-        .final-message p {
-            font-family: "Great Vibes", cursive;
-            font-size: 38px;
-            color: #76545d;
-            margin: 0;
-        }
-
-
-        /* NAVIGATION */
-
-        .navigation {
-            text-align: center;
-            margin-top: 35px;
-            padding-bottom: 30px;
-        }
-
-        .navigation .button {
-            margin: 6px;
-        }
-
-
         /* MOBILE */
 
-        @media (max-width: 700px) {
+        @media (max-width: 500px) {
+
+            body {
+                padding: 25px 12px;
+            }
 
             .diary {
-                height: 430px;
+                height: 450px;
+            }
+
+            .diary-pages {
+                padding: 35px 25px;
+            }
+
+            .story-content {
+                padding: 35px 25px;
+            }
+
+            .chapter-title {
+                font-size: 34px;
+            }
+
+            .chapter-text {
+                font-size: 17px;
             }
 
             .cover-title {
-                font-size: 52px;
+                font-size: 45px;
             }
 
-            .book-pages {
-                grid-template-columns: 1fr;
-            }
-
-            .page.left {
-                border-right: none;
-                border-bottom: 1px solid #ead9d3;
-            }
-
-            .book::after {
-                display: none;
-            }
-
-            .page {
-                padding: 35px 28px;
-            }
-
-            .page p {
-                font-size: 17px;
-            }
         }
 
     </style>
 </head>
 
-
 <body>
 
-    <!-- LITTLE DECORATIONS -->
+    <!-- DECORATIONS -->
 
-    <div class="decor one">♡</div>
-    <div class="decor two">✦</div>
-    <div class="decor three">♡</div>
-    <div class="decor four">✧</div>
-
-
-    <!-- INTRO -->
-
-    <section id="intro">
-
-        <div class="intro-content">
-
-            <div class="intro-small">
-                A little piece of our story
-            </div>
-
-            <h1 class="intro-title">
-                Our Story ♡
-            </h1>
-
-            <p class="intro-subtitle">
-                Three years, countless memories.
-            </p>
+    <div class="decor heart1">♡</div>
+    <div class="decor heart2">♡</div>
+    <div class="decor star1">✦</div>
+    <div class="decor star2">✧</div>
 
 
-            <div
-                class="diary"
-                id="diary"
-                onclick="openDiary()"
-            >
+    <main class="page">
 
-                <div class="book"></div>
+        <div class="title">
+            Our Story ♡
+        </div>
+
+        <div class="subtitle">
+            THREE YEARS
+        </div>
 
 
-                <div class="diary-cover">
+        <!-- DIARY -->
 
-                    <div class="cover-content">
+        <div class="diary" id="diary">
 
-                        <div class="cover-title">
-                            Our Story
+            <!-- INSIDE PAGES -->
+
+            <div class="diary-pages">
+
+                <div class="story-content">
+
+                    <!-- CHAPTER 1 -->
+
+                    <section class="chapter active">
+
+                        <div>
+                            <div class="chapter-number">
+                                CHAPTER ONE
+                            </div>
+
+                            <h2 class="chapter-title">
+                                How We Met
+                            </h2>
+
+                            <p class="chapter-text">
+                                It started in a random Discord server called
+                                <strong>Twilight.</strong>
+                            </p>
+
+                            <p class="chapter-text">
+                                You were just another person in the chat at
+                                first. But somehow, you became someone I
+                                actually wanted to know.
+                            </p>
+
                         </div>
 
-                        <div class="cover-subtitle">
-                            THREE YEARS
+                    </section>
+
+
+                    <!-- CHAPTER 2 -->
+
+                    <section class="chapter">
+
+                        <div>
+                            <div class="chapter-number">
+                                CHAPTER TWO
+                            </div>
+
+                            <h2 class="chapter-title">
+                                The First VC
+                            </h2>
+
+                            <p class="chapter-text">
+                                Somehow you joined VC just to hear me sing,
+                                and I still think that's one of the funniest
+                                ways a friendship could have started.
+                            </p>
+
+                            <p class="chapter-text">
+                                We added each other, started talking more,
+                                and before we knew it...
+                            </p>
+
                         </div>
 
-                        <div class="cover-names">
-                            STAR ♡ SCARA
+                    </section>
+
+
+                    <!-- CHAPTER 3 -->
+
+                    <section class="chapter">
+
+                        <div>
+                            <div class="chapter-number">
+                                CHAPTER THREE
+                            </div>
+
+                            <h2 class="chapter-title">
+                                Three Years
+                            </h2>
+
+                            <p class="chapter-text">
+                                Three years later, you're still one of the
+                                people who can make me laugh until my lungs
+                                hurt.
+                            </p>
+
+                            <p class="chapter-text">
+                                Through random chaos, online drama, late
+                                conversations, and way too many jokes...
+                                somehow, we're still here.
+                            </p>
+
+                            <p class="chapter-text">
+                                <strong>
+                                    And I'm really, really glad we are. ♡
+                                </strong>
+                            </p>
+
                         </div>
 
-                        <div class="click-hint">
-                            ✦ click to open ✦
-                        </div>
+                    </section>
+
+
+                    <!-- CONTROLS -->
+
+                    <div class="controls">
+
+                        <button
+                            class="page-button"
+                            id="prevButton"
+                            onclick="previousPage(event)"
+                        >
+                            ←
+                        </button>
+
+                        <span
+                            class="page-number"
+                            id="pageNumber"
+                        >
+                            1 / 3
+                        </span>
+
+                        <button
+                            class="page-button"
+                            id="nextButton"
+                            onclick="nextPage(event)"
+                        >
+                            →
+                        </button>
 
                     </div>
 
@@ -513,128 +596,36 @@
 
             </div>
 
-        </div>
 
-    </section>
-
-
-
-    <!-- STORY -->
-
-    <section id="storyArea">
-
-        <div class="story-heading">
-
-            <h1>
-                How We Met ♡
-            </h1>
-
-            <p>
-                Some friendships begin in the most unexpected places.
-            </p>
-
-        </div>
-
-
-
-        <div class="book-pages">
-
-            <div class="page left">
-
-                <div
-                    class="page-label"
-                    id="leftLabel"
-                >
-                    Chapter One
-                </div>
-
-                <h2 id="leftTitle">
-                    How We Met
-                </h2>
-
-                <p id="leftText">
-                    A random Discord server called Twilight.
-                </p>
-
-                <div class="page-decoration">
-                    ✦
-                </div>
-
-            </div>
-
-
-
-            <div class="page">
-
-                <div
-                    class="page-label"
-                    id="rightLabel"
-                >
-                    Chapter One
-                </div>
-
-                <h2 id="rightTitle">
-                    A Random Person...
-                </h2>
-
-                <p id="rightText">
-                    You were just someone I happened to notice
-                    in a server. I had no idea that random moment
-                    would eventually lead to three years of friendship.
-                </p>
-
-                <div class="page-decoration">
-                    ♡
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- PAGE CONTROLS -->
-
-        <div class="controls">
-
-            <button
-                class="button"
-                onclick="previousPage()"
-            >
-                ← Previous
-            </button>
+            <!-- COVER -->
 
             <div
-                class="page-number"
-                id="pageNumber"
+                class="diary-cover"
+                onclick="openDiary(event)"
             >
-                1 / 3
+
+                <h1 class="cover-title">
+                    Our Story
+                </h1>
+
+                <div class="cover-subtitle">
+                    THREE YEARS
+                </div>
+
+                <div class="cover-names">
+                    STAR ♡ SCARA
+                </div>
+
+                <div class="click-hint">
+                    ✦ click to open ✦
+                </div>
+
             </div>
 
-            <button
-                class="button"
-                onclick="nextPage()"
-            >
-                Next →
-            </button>
-
         </div>
 
 
-
-        <!-- FINAL MESSAGE -->
-
-        <div class="final-message">
-
-            <p>
-                And somehow... we're still here. ♡
-            </p>
-
-        </div>
-
-
-
-        <!-- NEXT CHANNEL -->
+        <!-- NAVIGATION -->
 
         <div class="navigation">
 
@@ -654,135 +645,78 @@
 
         </div>
 
-    </section>
-
+    </main>
 
 
     <script>
 
-        const pages = [
-
-            {
-                leftLabel: "Chapter One",
-                leftTitle: "How We Met",
-                leftText:
-                    "A random Discord server called Twilight.",
-
-                rightLabel: "Chapter One",
-                rightTitle: "A Random Person...",
-                rightText:
-                    "You were just someone I happened to notice in a server. I had no idea that random moment would eventually lead to three years of friendship."
-            },
-
-            {
-                leftLabel: "Chapter Two",
-                leftTitle: "The First VC",
-                leftText:
-                    "Then somehow, you joined VC just to hear me sing.",
-
-                rightLabel: "Chapter Two",
-                rightTitle: "We Added Each Other",
-                rightText:
-                    "We started talking more, added each other, and little by little you stopped being some random person from Twilight. You became someone I genuinely cared about."
-            },
-
-            {
-                leftLabel: "Chapter Three",
-                leftTitle: "Three Years",
-                leftText:
-                    "And now look at us.",
-
-                rightLabel: "Chapter Three",
-                rightTitle: "You ♡",
-                rightText:
-                    "We've laughed until our lungs hurt, survived online drama, made countless memories, and somehow made it through three whole years. I'm really grateful that random day led me to you."
-            }
-
-        ];
-
-
         let currentPage = 0;
 
+        const chapters =
+            document.querySelectorAll(".chapter");
 
-        function openDiary() {
+        const pageNumber =
+            document.getElementById("pageNumber");
 
-            const diary =
-                document.getElementById("diary");
+        const diary =
+            document.getElementById("diary");
+
+
+        function openDiary(event) {
+
+            event.stopPropagation();
 
             diary.classList.add("opened");
 
-            setTimeout(() => {
-
-                document.getElementById("intro").style.display =
-                    "none";
-
-                document.getElementById("storyArea").style.display =
-                    "block";
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-            }, 900);
-
         }
 
 
-        function updatePage() {
+        function showPage(number) {
 
-            const page =
-                pages[currentPage];
-
-
-            document.getElementById("leftLabel").textContent =
-                page.leftLabel;
-
-            document.getElementById("leftTitle").textContent =
-                page.leftTitle;
-
-            document.getElementById("leftText").textContent =
-                page.leftText;
-
-
-            document.getElementById("rightLabel").textContent =
-                page.rightLabel;
-
-            document.getElementById("rightTitle").textContent =
-                page.rightTitle;
-
-            document.getElementById("rightText").textContent =
-                page.rightText;
-
-
-            document.getElementById("pageNumber").textContent =
-                `${currentPage + 1} / ${pages.length}`;
-
-        }
-
-
-        function nextPage() {
-
-            if (currentPage < pages.length - 1) {
-
-                currentPage++;
-
-                updatePage();
-
+            if (number < 0) {
+                number = 0;
             }
 
+            if (number >= chapters.length) {
+                number = chapters.length - 1;
+            }
+
+            currentPage = number;
+
+            chapters.forEach((chapter, index) => {
+
+                chapter.classList.toggle(
+                    "active",
+                    index === currentPage
+                );
+
+            });
+
+            pageNumber.textContent =
+                `${currentPage + 1} / ${chapters.length}`;
+
         }
 
 
-        function previousPage() {
+        function nextPage(event) {
 
-            if (currentPage > 0) {
+            event.stopPropagation();
 
-                currentPage--;
-
-                updatePage();
-
+            if (!diary.classList.contains("opened")) {
+                diary.classList.add("opened");
+                return;
             }
+
+            showPage(currentPage + 1);
+
+        }
+
+
+        function previousPage(event) {
+
+            event.stopPropagation();
+
+            showPage(currentPage - 1);
 
         }
 
