@@ -1,0 +1,464 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f7f0e6;
+    color: #5d4741;
+    font-family: "Cormorant Garamond", serif;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.tiny {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #a87979;
+}
+
+button {
+    border: none;
+    background: #b98787;
+    color: #fffaf5;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #9f6e6e;
+}
+
+/* ---------- WELCOME ---------- */
+
+.screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at 20% 20%, #fff8ef 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, #ead6d0 0%, transparent 25%),
+        #f7f0e6;
+}
+
+.envelope {
+    width: min(90%, 550px);
+    min-height: 550px;
+    background: #fffaf3;
+    border: 1px solid #decfc1;
+    box-shadow: 0 20px 60px rgba(100, 70, 60, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 50px;
+}
+
+.lace {
+    position: absolute;
+    inset: 15px;
+    border: 1px dashed #d7bbb2;
+    pointer-events: none;
+}
+
+.envelope h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(70px, 12vw, 110px);
+    font-weight: 400;
+    color: #9d7070;
+    margin: 10px 0;
+}
+
+.date {
+    letter-spacing: 3px;
+    font-size: 17px;
+}
+
+.big-bow {
+    font-size: 55px;
+    margin: 30px 0 10px;
+}
+
+.instruction {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #977a73;
+}
+
+/* ---------- DECORATIONS ---------- */
+
+.decor {
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.bow1 {
+    top: 8%;
+    left: 5%;
+    font-size: 35px;
+    transform: rotate(-15deg);
+}
+
+.bow2 {
+    bottom: 8%;
+    right: 5%;
+    font-size: 40px;
+    transform: rotate(15deg);
+}
+
+.heart1 {
+    top: 35%;
+    left: 8%;
+    font-size: 40px;
+}
+
+.heart2 {
+    top: 60%;
+    right: 8%;
+    font-size: 40px;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 100vh;
+    padding: 120px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 30% 30%, #fffaf3 0%, transparent 25%),
+        radial-gradient(circle at 70% 70%, #ecd9d2 0%, transparent 25%);
+}
+
+.hero h2 {
+    font-size: clamp(30px, 6vw, 55px);
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.hero h1 {
+    font-family: "Great Vibes", cursive;
+    color: #9d7070;
+    font-size: clamp(80px, 15vw, 150px);
+    font-weight: 400;
+}
+
+.subtitle {
+    font-size: 21px;
+    font-style: italic;
+}
+
+.divider {
+    margin: 35px 0;
+    color: #b88787;
+    letter-spacing: 4px;
+}
+
+#countdown {
+    font-size: 18px;
+    color: #98716c;
+}
+
+/* ---------- STORY CARD ---------- */
+
+.card {
+    max-width: 800px;
+    margin: 120px auto;
+    padding: 70px;
+    width: 90%;
+    background: #fffaf3;
+    border: 1px solid #dfd0c2;
+    box-shadow: 0 20px 60px rgba(100, 70, 60, 0.09);
+    text-align: center;
+    position: relative;
+}
+
+.card-decoration {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.card h2,
+.memories h2,
+.letter h2,
+.gift h2,
+.final h2 {
+    font-size: 45px;
+    font-weight: 500;
+    color: #8e6461;
+    margin: 15px 0 30px;
+}
+
+.card p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #9d7070;
+    font-style: italic;
+    font-size: 22px !important;
+}
+
+/* ---------- MEMORIES ---------- */
+
+.memories {
+    padding: 100px 7%;
+    text-align: center;
+}
+
+.memory-grid {
+    max-width: 1000px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.memory {
+    background: #fffaf3;
+    border: 1px solid #dfd0c2;
+    padding: 40px 25px;
+    transition: 0.3s;
+}
+
+.memory:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(100, 70, 60, 0.1);
+}
+
+.memory span {
+    font-size: 30px;
+}
+
+.memory h3 {
+    font-size: 27px;
+    color: #966d6a;
+    margin: 15px 0;
+}
+
+.memory p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ---------- LETTER ---------- */
+
+.letter-section {
+    padding: 120px 20px;
+    background: #eee2d6;
+}
+
+.letter {
+    max-width: 850px;
+    margin: auto;
+    background: #fffaf1;
+    padding: 80px;
+    box-shadow: 0 25px 70px rgba(70, 50, 40, 0.13);
+    border: 1px solid #dccbb9;
+    position: relative;
+}
+
+.letter::before,
+.letter::after {
+    content: "♡";
+    position: absolute;
+    font-size: 40px;
+    color: #c39791;
+}
+
+.letter::before {
+    top: 25px;
+    left: 30px;
+}
+
+.letter::after {
+    bottom: 25px;
+    right: 30px;
+}
+
+.letter-top {
+    text-align: center;
+    color: #b48680;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.letter h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 65px;
+    font-weight: 400;
+}
+
+.letter-text {
+    margin-top: 35px;
+}
+
+.letter-text p {
+    font-size: 20px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.big-emotion {
+    color: #966c6a;
+    font-size: 25px !important;
+    font-style: italic;
+    text-align: center;
+    margin: 45px 0 !important;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 50px;
+    font-style: italic;
+}
+
+.signature span {
+    font-family: "Great Vibes", cursive;
+    font-size: 45px;
+    color: #9b6d6d;
+}
+
+/* ---------- GIFT ---------- */
+
+.gift {
+    text-align: center;
+    padding: 130px 20px;
+}
+
+.perfume {
+    max-width: 450px;
+    margin: 50px auto;
+    background: #fffaf3;
+    padding: 45px;
+    border: 1px solid #dfd0c2;
+    box-shadow: 0 20px 50px rgba(100, 70, 60, 0.1);
+}
+
+.bottle {
+    width: 100px;
+    height: 150px;
+    margin: 0 auto 30px;
+    background: #ead6d0;
+    border: 2px solid #b88b86;
+    border-radius: 15px 15px 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #986f6d;
+    position: relative;
+}
+
+.bottle::before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    width: 45px;
+    height: 35px;
+    background: #b88b86;
+    border-radius: 6px 6px 0 0;
+}
+
+.perfume h3 {
+    font-size: 30px;
+    color: #966c6a;
+    margin-bottom: 15px;
+}
+
+.perfume p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+/* ---------- FINAL ---------- */
+
+.final {
+    min-height: 80vh;
+    padding: 120px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #eadbd2;
+}
+
+.final-bow {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.final h2 {
+    font-size: clamp(35px, 7vw, 65px);
+}
+
+.final p {
+    max-width: 600px;
+    font-size: 21px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.hearts {
+    margin-top: 30px;
+    font-size: 25px;
+    letter-spacing: 15px;
+    color: #a77775;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+    .envelope {
+        min-height: 500px;
+        padding: 30px;
+    }
+
+    .card {
+        padding: 40px 25px;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .letter {
+        padding: 45px 25px;
+    }
+
+    .letter-text p {
+        font-size: 18px;
+    }
+
+    .letter h2 {
+        font-size: 50px;
+    }
+
+}
