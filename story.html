@@ -1,9 +1,6 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,1477 +8,625 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
-
         * {
             box-sizing: border-box;
         }
 
-
         body {
-
             margin: 0;
-
             min-height: 100vh;
-
             background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255,255,255,0.8),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 80% 70%,
-                    rgba(255,220,225,0.5),
-                    transparent 30%
-                ),
-                #f7eee7;
-
-            color: #674d54;
-
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(245,215,215,0.45), transparent 30%),
+                #f8eee9;
+            color: #6f5158;
             font-family: "Cormorant Garamond", serif;
-
             overflow-x: hidden;
-
         }
-
-
-        /* =========================
-           DECORATIONS
-        ========================= */
 
         .decor {
-
             position: fixed;
-
             pointer-events: none;
-
-            color: #b58b94;
-
-            opacity: 0.65;
-
-            z-index: 0;
-
-        }
-
-
-        .heart-one {
-
-            top: 80px;
-
-            left: 7%;
-
-            font-size: 30px;
-
-            transform: rotate(-15deg);
-
-        }
-
-
-        .heart-two {
-
-            top: 170px;
-
-            right: 8%;
-
-            font-size: 24px;
-
-            transform: rotate(15deg);
-
-        }
-
-
-        .star-one {
-
-            bottom: 100px;
-
-            left: 12%;
-
+            color: rgba(170, 120, 130, 0.35);
             font-size: 22px;
-
+            z-index: 0;
         }
 
-
-        .star-two {
-
-            bottom: 180px;
-
-            right: 12%;
-
-            font-size: 28px;
-
+        .one {
+            top: 8%;
+            left: 8%;
         }
 
+        .two {
+            top: 18%;
+            right: 10%;
+        }
 
-        /* =========================
-           INTRO
-        ========================= */
+        .three {
+            bottom: 12%;
+            left: 12%;
+        }
 
-        .intro {
+        .four {
+            bottom: 8%;
+            right: 8%;
+        }
 
+        /* INTRO */
+
+        #intro {
             min-height: 100vh;
-
             display: flex;
-
-            flex-direction: column;
-
             align-items: center;
-
             justify-content: center;
-
-            text-align: center;
-
             padding: 30px;
-
             position: relative;
-
             z-index: 2;
-
         }
 
-
-        .intro .tiny {
-
-            font-size: 13px;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-            color: #a27c85;
-
-            margin-bottom: 8px;
-
+        .intro-content {
+            text-align: center;
         }
 
-
-        .intro h1 {
-
-            margin: 0 0 8px;
-
-            font-family: "Great Vibes", cursive;
-
-            font-size: clamp(55px, 9vw, 85px);
-
-            font-weight: 400;
-
-            color: #75565f;
-
-        }
-
-
-        .intro p {
-
-            margin: 0 0 35px;
-
+        .intro-small {
             font-size: 18px;
-
-            font-style: italic;
-
-            color: #99747c;
-
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #a27c83;
+            margin-bottom: 12px;
         }
 
+        .intro-title {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(55px, 10vw, 95px);
+            color: #76545d;
+            margin: 0;
+            font-weight: 400;
+        }
 
-        /* =========================
-           DIARY
-        ========================= */
+        .intro-subtitle {
+            font-size: 20px;
+            margin-top: 8px;
+            margin-bottom: 35px;
+        }
+
+        /* DIARY */
 
         .diary {
-
-            width: min(370px, 82vw);
-
-            height: 500px;
-
+            width: min(360px, 82vw);
+            height: 470px;
             position: relative;
-
             cursor: pointer;
-
             perspective: 1500px;
-
-            transition: transform 0.3s ease;
-
+            margin: auto;
         }
-
-
-        .diary:hover {
-
-            transform: translateY(-7px);
-
-        }
-
 
         .diary-cover {
-
             position: absolute;
-
             inset: 0;
-
-            z-index: 10;
-
-            transform-origin: left center;
-
-            transition:
-                transform 1.5s cubic-bezier(.77,0,.18,1),
-                box-shadow 1s ease;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #d9b4ba,
-                    #c99da6
-                );
-
-            border-radius: 8px 18px 18px 8px;
-
-            border: 2px solid #b98993;
-
+            background: linear-gradient(145deg, #d7b2b1, #b98f93);
+            border-radius: 12px 18px 18px 12px;
             box-shadow:
-                12px 18px 30px rgba(95,65,72,0.22),
-                inset 8px 0 0 rgba(255,255,255,0.15);
-
+                0 20px 40px rgba(91, 61, 68, 0.22),
+                inset 4px 0 0 rgba(255,255,255,0.15);
+            z-index: 5;
+            transform-origin: left center;
+            transition: transform 1.4s cubic-bezier(.77,0,.18,1);
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
+            backface-visibility: hidden;
         }
-
 
         .diary-cover::before {
-
             content: "";
-
             position: absolute;
-
-            inset: 15px;
-
-            border: 1px solid rgba(255,255,255,0.5);
-
-            border-radius: 5px 13px 13px 5px;
-
+            inset: 18px;
+            border: 1px solid rgba(255,255,255,0.45);
+            border-radius: 8px 13px 13px 8px;
         }
-
 
         .cover-content {
-
             text-align: center;
-
-            color: #fff8f4;
-
-            position: relative;
-
-            z-index: 2;
-
+            color: #fff8f5;
+            padding: 30px;
         }
 
-
-        .cover-small {
-
-            font-size: 12px;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
+        .cover-moon {
+            font-size: 42px;
             margin-bottom: 15px;
-
         }
 
-
-        .cover-content h2 {
-
-            margin: 0;
-
+        .cover-title {
             font-family: "Great Vibes", cursive;
-
-            font-size: 65px;
-
-            font-weight: 400;
-
+            font-size: 48px;
+            line-height: 1.1;
         }
 
-
-        .cover-line {
-
-            width: 130px;
-
-            height: 1px;
-
-            background: rgba(255,255,255,0.7);
-
-            margin: 18px auto;
-
-        }
-
-
-        .cover-content p {
-
-            margin: 5px;
-
-            font-size: 15px;
-
+        .cover-subtitle {
+            margin-top: 18px;
+            font-size: 17px;
             letter-spacing: 2px;
-
         }
 
-
-        .cover-heart {
-
-            font-size: 32px;
-
-            margin-top: 25px;
-
+        .cover-names {
+            margin-top: 30px;
+            font-size: 16px;
+            letter-spacing: 3px;
         }
 
-
-        /* =========================
-           INSIDE BOOK
-        ========================= */
+        .click-hint {
+            position: absolute;
+            bottom: 28px;
+            left: 0;
+            right: 0;
+            font-size: 14px;
+            opacity: 0.85;
+        }
 
         .book {
-
             position: absolute;
-
             inset: 0;
-
-            display: flex;
-
-            background: #ead9c4;
-
-            border-radius: 8px 18px 18px 8px;
-
-            box-shadow:
-                12px 18px 30px rgba(95,65,72,0.18);
-
+            background: #fffaf6;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(91,61,68,0.15);
             overflow: hidden;
-
         }
 
-
-        .page {
-
-            width: 50%;
-
-            height: 100%;
-
-            padding: 38px 32px;
-
-            background:
-                repeating-linear-gradient(
-                    transparent 0px,
-                    transparent 30px,
-                    rgba(160,120,100,0.09) 31px
-                ),
-                #fff8ed;
-
-            position: relative;
-
-        }
-
-
-        .left-page {
-
-            border-right: 1px solid #d3b99e;
-
-            box-shadow:
-                inset -8px 0 15px rgba(110,80,65,0.06);
-
-        }
-
-
-        .right-page {
-
-            box-shadow:
-                inset 8px 0 15px rgba(110,80,65,0.06);
-
-        }
-
-
-        .page::before {
-
+        .book::after {
             content: "";
-
             position: absolute;
-
-            inset: 12px;
-
-            border: 1px solid rgba(180,145,120,0.35);
-
-            pointer-events: none;
-
+            left: 50%;
+            top: 15px;
+            bottom: 15px;
+            width: 1px;
+            background: #ead9d3;
         }
-
-
-        .page-number {
-
-            position: absolute;
-
-            bottom: 18px;
-
-            left: 0;
-
-            right: 0;
-
-            text-align: center;
-
-            font-size: 12px;
-
-            color: #a78976;
-
-        }
-
-
-        .chapter {
-
-            font-size: 11px;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-
-            color: #a17b82;
-
-            margin-bottom: 12px;
-
-        }
-
-
-        .page h2 {
-
-            margin: 0 0 14px;
-
-            font-family: "Great Vibes", cursive;
-
-            font-size: 38px;
-
-            font-weight: 400;
-
-            color: #74545b;
-
-        }
-
-
-        .page h3 {
-
-            margin: 0 0 12px;
-
-            font-size: 20px;
-
-            font-weight: 600;
-
-            color: #76565d;
-
-        }
-
-
-        .page p {
-
-            font-size: 15px;
-
-            line-height: 1.65;
-
-            margin: 0 0 15px;
-
-            color: #715c58;
-
-        }
-
-
-        .page .highlight {
-
-            font-style: italic;
-
-            color: #906974;
-
-        }
-
-
-        .page .little-heart {
-
-            text-align: center;
-
-            font-size: 22px;
-
-            color: #b17f89;
-
-            margin: 20px 0;
-
-        }
-
-
-        /* =========================
-           OPEN ANIMATION
-        ========================= */
 
         .opened .diary-cover {
-
             transform: rotateY(-145deg);
-
-            box-shadow:
-                -5px 10px 20px rgba(80,55,60,0.12);
-
-            pointer-events: none;
-
         }
 
+        /* STORY */
 
-        .opened.diary {
-
-            cursor: default;
-
-        }
-
-
-        /* =========================
-           BOOK AREA
-        ========================= */
-
-        .story-area {
-
+        #storyArea {
             display: none;
-
             min-height: 100vh;
-
-            padding: 60px 20px 80px;
-
+            padding: 50px 20px;
             position: relative;
-
             z-index: 2;
+        }
 
+        .story-heading {
             text-align: center;
-
+            margin-bottom: 30px;
         }
 
-
-        .story-area.visible {
-
-            display: block;
-
-            animation: fadeIn 1s ease;
-
-        }
-
-
-        @keyframes fadeIn {
-
-            from {
-
-                opacity: 0;
-
-                transform: translateY(20px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: translateY(0);
-
-            }
-
-        }
-
-
-        .story-title {
-
-            margin-bottom: 35px;
-
-        }
-
-
-        .story-title .tiny {
-
-            font-size: 13px;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-            color: #a27c85;
-
-        }
-
-
-        .story-title h1 {
-
-            margin: 8px 0;
-
+        .story-heading h1 {
             font-family: "Great Vibes", cursive;
-
-            font-size: 62px;
-
+            font-size: clamp(48px, 9vw, 72px);
             font-weight: 400;
-
-            color: #76565e;
-
-        }
-
-
-        .story-title p {
-
+            color: #76545d;
             margin: 0;
+        }
 
+        .story-heading p {
             font-size: 18px;
-
-            font-style: italic;
-
-            color: #99747c;
-
+            margin-top: 5px;
         }
 
-
-        /* =========================
-           BOOK DISPLAY
-        ========================= */
-
-        .book-wrapper {
-
-            width: min(900px, 95vw);
-
+        .book-pages {
+            width: min(1000px, 95vw);
+            min-height: 500px;
             margin: auto;
-
-            position: relative;
-
-        }
-
-
-        .story-book {
-
-            width: 100%;
-
-            min-height: 500px;
-
-            display: flex;
-
-            background: #fff8ed;
-
-            border-radius: 8px 18px 18px 8px;
-
-            box-shadow:
-                0 22px 45px rgba(80,60,55,0.17);
-
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fffaf6;
+            border-radius: 10px;
+            box-shadow: 0 20px 45px rgba(91,61,68,0.13);
             overflow: hidden;
-
-            border: 1px solid #d4b89e;
-
         }
 
-
-        .story-book .page {
-
-            min-height: 500px;
-
+        .page {
+            padding: clamp(30px, 5vw, 60px);
+            position: relative;
         }
 
-
-        .story-book .page h2 {
-
-            font-size: 44px;
-
+        .page.left {
+            border-right: 1px solid #ead9d3;
         }
 
-
-        .page-content {
-
-            animation: pageAppear 0.5s ease;
-
+        .page-label {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            color: #ad858b;
+            margin-bottom: 20px;
         }
 
-
-        @keyframes pageAppear {
-
-            from {
-
-                opacity: 0;
-
-                transform: translateX(15px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform: translateX(0);
-
-            }
-
+        .page h2 {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(40px, 6vw, 58px);
+            font-weight: 400;
+            color: #76545d;
+            margin: 0 0 18px;
         }
 
+        .page p {
+            font-size: 19px;
+            line-height: 1.7;
+            margin: 0;
+        }
 
-        /* =========================
-           CONTROLS
-        ========================= */
+        .page-decoration {
+            position: absolute;
+            bottom: 25px;
+            right: 30px;
+            font-size: 24px;
+            color: #c79ba1;
+        }
+
+        /* CONTROLS */
 
         .controls {
-
+            width: min(1000px, 95vw);
+            margin: 25px auto 0;
             display: flex;
-
             justify-content: center;
-
             align-items: center;
-
-            gap: 20px;
-
-            margin-top: 28px;
-
+            gap: 18px;
+            flex-wrap: wrap;
         }
 
-
-        .book-button {
-
-            padding: 12px 25px;
-
-            border: 1px solid #bd969c;
-
-            border-radius: 30px;
-
-            background: #f8e9e5;
-
-            color: #76555e;
-
-            font-family: "Cormorant Garamond", serif;
-
-            font-size: 17px;
-
-            cursor: pointer;
-
-            transition: 0.25s ease;
-
-        }
-
-
-        .book-button:hover {
-
-            transform: translateY(-3px);
-
-            background: #f2dcd9;
-
-            box-shadow: 0 7px 15px rgba(90,65,70,0.12);
-
-        }
-
-
-        .book-button:disabled {
-
-            opacity: 0.4;
-
-            cursor: default;
-
-            transform: none;
-
-            box-shadow: none;
-
-        }
-
-
-        .page-counter {
-
-            font-size: 15px;
-
-            color: #9a777d;
-
-            min-width: 75px;
-
-        }
-
-
-        /* =========================
-           FINAL BUTTON
-        ========================= */
-
-        .finish {
-
-            margin-top: 35px;
-
-        }
-
-
-        .finish a {
-
+        .button {
             display: inline-block;
-
             padding: 13px 27px;
-
-            border-radius: 35px;
-
-            background: #f8e9e5;
-
-            border: 1px solid #bd969c;
-
-            color: #76555e;
-
+            border-radius: 40px;
+            border: 1px solid #cba5a7;
+            background: linear-gradient(135deg, #fff8f4, #f7e3df);
+            color: #76545d;
             text-decoration: none;
-
+            font-family: "Cormorant Garamond", serif;
             font-size: 17px;
-
+            cursor: pointer;
+            box-shadow:
+                0 6px 15px rgba(100,70,75,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.8);
             transition: 0.25s ease;
-
         }
 
-
-        .finish a:hover {
-
+        .button:hover {
             transform: translateY(-3px);
-
-            background: #f2dcd9;
-
+            background: linear-gradient(135deg, #fffaf7, #f3deda);
+            box-shadow: 0 9px 20px rgba(100,70,75,0.15);
         }
 
+        .page-number {
+            font-size: 17px;
+            color: #927178;
+            min-width: 100px;
+            text-align: center;
+        }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        .final-message {
+            text-align: center;
+            margin: 45px auto 20px;
+            max-width: 700px;
+        }
+
+        .final-message p {
+            font-family: "Great Vibes", cursive;
+            font-size: 38px;
+            color: #76545d;
+            margin: 0;
+        }
+
+        /* NAVIGATION */
+
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+            padding-bottom: 30px;
+        }
+
+        .navigation .button {
+            margin: 6px;
+        }
+
+        /* MOBILE */
 
         @media (max-width: 700px) {
-
             .diary {
-
                 height: 430px;
-
             }
 
-
-            .cover-content h2 {
-
-                font-size: 53px;
-
+            .book-pages {
+                grid-template-columns: 1fr;
             }
 
-
-            .story-title h1 {
-
-                font-size: 50px;
-
-            }
-
-
-            .story-book {
-
-                flex-direction: column;
-
-            }
-
-
-            .story-book .page {
-
-                width: 100%;
-
-                min-height: auto;
-
+            .page.left {
                 border-right: none;
-
+                border-bottom: 1px solid #ead9d3;
             }
 
-
-            .story-book .right-page {
-
-                border-top: 1px solid #d3b99e;
-
+            .book::after {
+                display: none;
             }
-
 
             .page {
-
-                padding: 35px 25px;
-
+                padding: 35px 28px;
             }
 
+            .page p {
+                font-size: 17px;
+            }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
+    <div class="decor one">♡</div>
+    <div class="decor two">✦</div>
+    <div class="decor three">♡</div>
+    <div class="decor four">✧</div>
 
-    <!-- DECORATIONS -->
+    <!-- INTRO -->
 
-    <div class="decor heart-one">
-        ♡
-    </div>
+    <section id="intro">
+        <div class="intro-content">
 
-    <div class="decor heart-two">
-        ♡
-    </div>
+            <div class="intro-small">A little piece of our story</div>
 
-    <div class="decor star-one">
-        ✦
-    </div>
+            <h1 class="intro-title">
+                Our Story ♡
+            </h1>
 
-    <div class="decor star-two">
-        ✧
-    </div>
+            <p class="intro-subtitle">
+                Three years, countless memories.
+            </p>
 
+            <div class="diary" id="diary" onclick="openDiary()">
 
+                <div class="book"></div>
 
-    <!-- =========================
-         CLOSED DIARY
-    ========================= -->
+                <div class="diary-cover">
 
-    <section class="intro" id="intro">
+                    <div class="cover-content">
 
-        <p class="tiny">
-            a little story about us
-        </p>
+                        <div class="cover-moon">🌙</div>
 
-        <h1>
-            Our Story ♡
-        </h1>
+                        <div class="cover-title">
+                            Our Story
+                        </div>
 
-        <p>
-            Open the diary to see how it all began.
-        </p>
+                        <div class="cover-subtitle">
+                            THREE YEARS
+                        </div>
 
+                        <div class="cover-names">
+                            STAR ♡ SCARA
+                        </div>
 
-        <div class="diary" id="diary" onclick="openDiary()">
+                        <div class="click-hint">
+                            ✦ click to open ✦
+                        </div>
 
-
-            <!-- INSIDE -->
-
-            <div class="book">
-
-
-                <div class="page left-page">
-
-                    <div class="chapter">
-                        Chapter One
-                    </div>
-
-                    <h2>
-                        How We Met
-                    </h2>
-
-                    <p>
-                        Three years ago, in a Discord server
-                        called <i>Twilight</i>...
-                    </p>
-
-                    <p class="little-heart">
-                        ♡
-                    </p>
-
-                    <p class="highlight">
-                        Every story has a beginning.
-                    </p>
-
-                    <div class="page-number">
-                        1
-                    </div>
-
-                </div>
-
-
-                <div class="page right-page">
-
-                    <div class="chapter">
-                        The Beginning
-                    </div>
-
-                    <h3>
-                        A random person in chat...
-                    </h3>
-
-                    <p>
-                        You were just someone who had
-                        such a vibe in chat that I couldn't
-                        help but notice you.
-                    </p>
-
-                    <p>
-                        I had no idea that noticing you
-                        would eventually lead to three
-                        years of friendship.
-                    </p>
-
-                    <div class="page-number">
-                        2
                     </div>
 
                 </div>
 
             </div>
-
-
-
-            <!-- COVER -->
-
-            <div class="diary-cover">
-
-                <div class="cover-content">
-
-                    <div class="cover-small">
-                        A little birthday story
-                    </div>
-
-                    <h2>
-                        Our Story
-                    </h2>
-
-                    <div class="cover-line"></div>
-
-                    <p>
-                        Three Years
-                    </p>
-
-                    <p>
-                        Star ♡ Scara
-                    </p>
-
-                    <div class="cover-heart">
-                        ♡
-                    </div>
-
-                </div>
-
-            </div>
-
 
         </div>
-
-
     </section>
 
 
+    <!-- STORY AREA -->
 
-    <!-- =========================
-         STORY
-    ========================= -->
+    <section id="storyArea">
 
-    <section class="story-area" id="storyArea">
+        <div class="story-heading">
 
-
-        <div class="story-title">
-
-            <div class="tiny">
-                ♡ our little timeline ♡
-            </div>
-
-            <h1>
-                How It All Started
-            </h1>
+            <h1>How We Met ♡</h1>
 
             <p>
-                Turn the pages...
+                Some friendships begin in the most unexpected places.
             </p>
 
         </div>
 
 
+        <div class="book-pages">
 
-        <div class="book-wrapper">
+            <div class="page left">
 
-            <div class="story-book">
-
-
-                <!-- LEFT PAGE -->
-
-                <div class="page left-page">
-
-                    <div class="page-content" id="leftContent">
-
-                        <div class="chapter">
-                            Chapter One
-                        </div>
-
-                        <h2>
-                            How We Met
-                        </h2>
-
-                        <p>
-                            Three years ago, in a Discord server
-                            called <i>Twilight</i>, you were just
-                            someone who had such a vibe in chat
-                            that I couldn't help but notice you.
-                        </p>
-
-                        <p>
-                            At the time, I had absolutely no idea
-                            that this random person in a server
-                            would eventually become one of the
-                            most important friendships in my life.
-                        </p>
-
-                        <p class="little-heart">
-                            ୨୧ ♡ ୨୧
-                        </p>
-
-                    </div>
-
-                    <div class="page-number">
-                        <span id="leftNumber">1</span>
-                    </div>
-
+                <div class="page-label" id="leftLabel">
+                    Chapter One
                 </div>
 
+                <h2 id="leftTitle">
+                    How We Met
+                </h2>
 
+                <p id="leftText">
+                    A random Discord server called Twilight.
+                </p>
 
-                <!-- RIGHT PAGE -->
-
-                <div class="page right-page">
-
-                    <div class="page-content" id="rightContent">
-
-                        <div class="chapter">
-                            Chapter Two
-                        </div>
-
-                        <h2>
-                            The First VC
-                        </h2>
-
-                        <p>
-                            Then one day, you joined VC just
-                            to hear me sing.
-                        </p>
-
-                        <p>
-                            It was such a small moment, but
-                            somehow it became the beginning
-                            of everything.
-                        </p>
-
-                        <p>
-                            We added each other...
-                        </p>
-
-                        <p class="highlight">
-                            And somehow, you became my best friend.
-                        </p>
-
-                    </div>
-
-                    <div class="page-number">
-                        <span id="rightNumber">2</span>
-                    </div>
-
+                <div class="page-decoration">
+                    ✦
                 </div>
-
 
             </div>
 
 
-            <!-- CONTROLS -->
+            <div class="page">
 
-            <div class="controls">
-
-                <button
-                    class="book-button"
-                    id="prevButton"
-                    onclick="previousPage()">
-
-                    ← Previous
-
-                </button>
-
-
-                <div class="page-counter" id="pageCounter">
-                    1 / 3
+                <div class="page-label" id="rightLabel">
+                    Chapter One
                 </div>
 
+                <h2 id="rightTitle">
+                    A Random Person...
+                </h2>
 
-                <button
-                    class="book-button"
-                    id="nextButton"
-                    onclick="nextPage()">
+                <p id="rightText">
+                    You were just someone I happened to notice in a server.
+                    I had no idea that random moment would eventually lead
+                    to three years of friendship.
+                </p>
 
-                    Next →
-
-                </button>
+                <div class="page-decoration">
+                    ♡
+                </div>
 
             </div>
-
 
         </div>
 
 
+        <!-- PAGE CONTROLS -->
 
-        <div class="finish">
+        <div class="controls">
 
-            <a href="index.html">
+            <button class="button" onclick="previousPage()">
+                ← Previous
+            </button>
+
+            <div class="page-number" id="pageNumber">
+                1 / 3
+            </div>
+
+            <button class="button" onclick="nextPage()">
+                Next →
+            </button>
+
+        </div>
+
+
+        <!-- FINAL MESSAGE -->
+
+        <div class="final-message">
+
+            <p>
+                And somehow... we're still here. ♡
+            </p>
+
+        </div>
+
+
+        <!-- NEXT CHANNEL -->
+
+        <div class="navigation">
+
+            <a href="memories.html" class="button">
+                📸 Our Memories ♡
+            </a>
+
+            <a href="index.html" class="button">
                 ← Back to Scara ♡
             </a>
 
         </div>
 
-
     </section>
-
 
 
     <script>
 
+        const pages = [
 
-        /* =========================
-           OPEN DIARY
-        ========================= */
+            {
+                leftLabel: "Chapter One",
+                leftTitle: "How We Met",
+                leftText:
+                    "A random Discord server called Twilight.",
+
+                rightLabel: "Chapter One",
+                rightTitle: "A Random Person...",
+                rightText:
+                    "You were just someone I happened to notice in a server. I had no idea that random moment would eventually lead to three years of friendship."
+            },
+
+            {
+                leftLabel: "Chapter Two",
+                leftTitle: "The First VC",
+                leftText:
+                    "Then somehow, you joined VC just to hear me sing.",
+
+                rightLabel: "Chapter Two",
+                rightTitle: "We Added Each Other",
+                rightText:
+                    "We started talking more, added each other, and little by little you stopped being some random person from Twilight. You became someone I genuinely cared about."
+            },
+
+            {
+                leftLabel: "Chapter Three",
+                leftTitle: "Three Years",
+                leftText:
+                    "And now look at us.",
+
+                rightLabel: "Chapter Three",
+                rightTitle: "You ♡",
+                rightText:
+                    "We've laughed until our lungs hurt, survived online drama, made countless memories, and somehow made it through three whole years. I'm really grateful that random day led me to you."
+            }
+
+        ];
+
+        let currentPage = 0;
+
 
         function openDiary() {
 
             const diary = document.getElementById("diary");
 
-            const intro = document.getElementById("intro");
-
-            const storyArea = document.getElementById("storyArea");
-
-
             diary.classList.add("opened");
 
+            setTimeout(() => {
 
-            setTimeout(function() {
-
-                intro.style.display = "none";
-
-                storyArea.classList.add("visible");
+                document.getElementById("intro").style.display = "none";
+                document.getElementById("storyArea").style.display = "block";
 
                 window.scrollTo({
-
                     top: 0,
-
                     behavior: "smooth"
-
                 });
 
-            }, 1200);
+            }, 900);
 
         }
 
 
+        function updatePage() {
 
-        /* =========================
-           STORY PAGES
-        ========================= */
+            const page = pages[currentPage];
 
-        const pages = [
+            document.getElementById("leftLabel").textContent =
+                page.leftLabel;
 
-            {
+            document.getElementById("leftTitle").textContent =
+                page.leftTitle;
 
-                left: {
+            document.getElementById("leftText").textContent =
+                page.leftText;
 
-                    chapter: "Chapter One",
+            document.getElementById("rightLabel").textContent =
+                page.rightLabel;
 
-                    title: "How We Met",
+            document.getElementById("rightTitle").textContent =
+                page.rightTitle;
 
-                    text: [
+            document.getElementById("rightText").textContent =
+                page.rightText;
 
-                        "Three years ago, in a Discord server called Twilight, you were just someone who had such a vibe in chat that I couldn't help but notice you.",
-
-                        "At the time, I had absolutely no idea that this random person in a server would eventually become one of the most important friendships in my life."
-
-                    ]
-
-                },
-
-                right: {
-
-                    chapter: "The Beginning",
-
-                    title: "A Random Person...",
-
-                    text: [
-
-                        "You were just someone in chat at first.",
-
-                        "But sometimes the smallest moments end up becoming the beginning of something you never expected."
-
-                    ],
-
-                    highlight: "And ours started there. ♡"
-
-                }
-
-            },
-
-
-            {
-
-                left: {
-
-                    chapter: "Chapter Two",
-
-                    title: "The First VC",
-
-                    text: [
-
-                        "Then one day, you joined VC just to hear me sing.",
-
-                        "I don't think either of us knew that something as small as that would eventually turn into one of the most important friendships I've ever had."
-
-                    ]
-
-                },
-
-                right: {
-
-                    chapter: "And Then...",
-
-                    title: "We Added Each Other",
-
-                    text: [
-
-                        "One little friend request.",
-
-                        "One tiny decision that somehow changed the next three years."
-
-                    ],
-
-                    highlight: "And somehow, you became my best friend."
-
-                }
-
-            },
-
-
-            {
-
-                left: {
-
-                    chapter: "Chapter Three",
-
-                    title: "Three Years",
-
-                    text: [
-
-                        "Since then, there have been VCs, stupid conversations, endless jokes, random chaos, and enough online drama to fill an entire book."
-
-                    ]
-
-                },
-
-                right: {
-
-                    chapter: "The Best Part",
-
-                    title: "You ♡",
-
-                    text: [
-
-                        "Looking back, I don't think the best part was any one huge moment.",
-
-                        "It was all the little moments that slowly turned a random person in a Discord server into someone I can't imagine those years without."
-
-                    ],
-
-                    highlight: "I'm really glad I noticed you."
-
-                }
-
-            }
-
-        ];
-
-
-
-        let currentPage = 0;
-
-
-
-        function createPageContent(data) {
-
-            let html = `
-
-                <div class="chapter">
-                    ${data.chapter}
-                </div>
-
-                <h2>
-                    ${data.title}
-                </h2>
-            `;
-
-
-            data.text.forEach(function(paragraph) {
-
-                html += `
-
-                    <p>
-                        ${paragraph}
-                    </p>
-
-                `;
-
-            });
-
-
-            if (data.highlight) {
-
-                html += `
-
-                    <p class="highlight">
-                        ${data.highlight}
-                    </p>
-
-                `;
-
-            }
-
-
-            return html;
+            document.getElementById("pageNumber").textContent =
+                `${currentPage + 1} / ${pages.length}`;
 
         }
-
-
-
-        function updatePages() {
-
-            const leftContent =
-                document.getElementById("leftContent");
-
-            const rightContent =
-                document.getElementById("rightContent");
-
-
-            leftContent.style.opacity = "0";
-
-            rightContent.style.opacity = "0";
-
-
-            setTimeout(function() {
-
-                leftContent.innerHTML =
-                    createPageContent(pages[currentPage].left);
-
-                rightContent.innerHTML =
-                    createPageContent(pages[currentPage].right);
-
-
-                document.getElementById("leftNumber").textContent =
-                    currentPage * 2 + 1;
-
-                document.getElementById("rightNumber").textContent =
-                    currentPage * 2 + 2;
-
-
-                document.getElementById("pageCounter").textContent =
-                    `${currentPage + 1} / ${pages.length}`;
-
-
-                leftContent.style.opacity = "1";
-
-                rightContent.style.opacity = "1";
-
-
-                document.getElementById("prevButton").disabled =
-                    currentPage === 0;
-
-
-                document.getElementById("nextButton").disabled =
-                    currentPage === pages.length - 1;
-
-
-            }, 250);
-
-        }
-
 
 
         function nextPage() {
@@ -1490,12 +635,11 @@
 
                 currentPage++;
 
-                updatePages();
+                updatePage();
 
             }
 
         }
-
 
 
         function previousPage() {
@@ -1504,19 +648,13 @@
 
                 currentPage--;
 
-                updatePages();
+                updatePage();
 
             }
 
         }
 
-
-        updatePages();
-
     </script>
 
-
 </body>
-
 </html>
-```
