@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Memories ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255,255,255,0.8), transparent 25%),
+                radial-gradient(circle at 85% 75%, rgba(255,220,225,0.5), transparent 30%),
+                #f8eee8;
+
+            color: #6f5057;
+            font-family: "Cormorant Garamond", serif;
+            text-align: center;
+
+            overflow-x: hidden;
+        }
+
+
+        /* DECORATIONS */
+
+        .decor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.65;
+        }
+
+
+        .heart-one {
+            top: 80px;
+            left: 8%;
+            font-size: 30px;
+            transform: rotate(-15deg);
+        }
+
+
+        .heart-two {
+            top: 190px;
+            right: 8%;
+            font-size: 23px;
+            transform: rotate(15deg);
+        }
+
+
+        .star-one {
+            bottom: 110px;
+            left: 10%;
+            font-size: 21px;
+        }
+
+
+        .star-two {
+            bottom: 190px;
+            right: 11%;
+            font-size: 27px;
+        }
+
+
+        /* PAGE */
+
+        .page {
+            position: relative;
+            z-index: 1;
+
+            width: 100%;
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 60px 20px 80px;
+        }
+
+
+        .tiny {
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+
+            color: #a27b84;
+
+            margin-bottom: 10px;
+        }
+
+
+        h1 {
+            margin: 0;
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: clamp(55px, 9vw, 85px);
+
+            font-weight: 400;
+
+            color: #795963;
+        }
+
+
+        .subtitle {
+            margin: 10px 0 35px;
+
+            font-size: 19px;
+            font-style: italic;
+
+            color: #9b747c;
+        }
+
+
+        .divider {
+            color: #bd919a;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* SCRAPBOOK */
+
+        .scrapbook {
+            width: min(760px, 94%);
+
+            margin: auto;
+
+            padding: 28px;
+
+            background: #e8d4c8;
+
+            border: 2px solid #c6a29d;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 20px 40px rgba(100,70,75,0.18),
+                inset 0 0 0 8px rgba(255,255,255,0.25);
+
+            transform: rotate(-0.5deg);
+        }
+
+
+        .scrapbook-inner {
+            background: #fff8f0;
+
+            padding: 35px 25px 40px;
+
+            border: 1px solid #d7b9b2;
+
+            min-height: 600px;
+
+            position: relative;
+        }
+
+
+        .scrapbook-title {
+            font-family: "Great Vibes", cursive;
+
+            font-size: 50px;
+
+            color: #795963;
+
+            margin-bottom: 5px;
+        }
+
+
+        .scrapbook-date {
+            font-size: 14px;
+
+            letter-spacing: 3px;
+
+            color: #a27b84;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* MEMORY GRID */
+
+        .memories {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+
+        .memory {
+            position: relative;
+
+            background: #fffdf9;
+
+            padding: 13px 13px 20px;
+
+            border: 1px solid #d8beb8;
+
+            box-shadow: 0 8px 18px rgba(100,70,75,0.10);
+
+            transition: 0.3s ease;
+        }
+
+
+        .memory:nth-child(1) {
+            transform: rotate(-2deg);
+        }
+
+
+        .memory:nth-child(2) {
+            transform: rotate(2deg);
+        }
+
+
+        .memory:nth-child(3) {
+            transform: rotate(1deg);
+        }
+
+
+        .memory:nth-child(4) {
+            transform: rotate(-2deg);
+        }
+
+
+        .memory:hover {
+            transform: rotate(0deg) translateY(-6px);
+            box-shadow: 0 13px 25px rgba(100,70,75,0.16);
+        }
+
+
+        .memory-photo {
+            height: 160px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f4e4df,
+                    #ead3d0
+                );
+
+            border: 1px solid #d5b5b3;
+
+            font-size: 42px;
+
+            color: #9b747c;
+        }
+
+
+        .memory h2 {
+            margin: 14px 0 4px;
+
+            font-size: 24px;
+
+            font-weight: 600;
+
+            color: #76545e;
+        }
+
+
+        .memory p {
+            margin: 0;
+
+            font-size: 16px;
+
+            line-height: 1.5;
+
+            color: #8e6b73;
+        }
+
+
+        /* TAPE */
+
+        .tape {
+            position: absolute;
+
+            width: 70px;
+            height: 22px;
+
+            background: rgba(222,184,177,0.65);
+
+            top: -10px;
+
+            left: 50%;
+
+            transform: translateX(-50%) rotate(-2deg);
+
+            opacity: 0.85;
+        }
+
+
+        /* BIG MEMORY */
+
+        .big-memory {
+            max-width: 650px;
+
+            margin: 35px auto 0;
+
+            padding: 28px;
+
+            background: #f7e8e1;
+
+            border: 1px solid #d6b7b2;
+
+            border-radius: 8px;
+
+            transform: rotate(0.5deg);
+
+            box-shadow: 0 8px 20px rgba(100,70,75,0.08);
+        }
+
+
+        .big-memory .emoji {
+            font-size: 38px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .big-memory h2 {
+            margin: 0 0 8px;
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 38px;
+
+            font-weight: 400;
+
+            color: #795963;
+        }
+
+
+        .big-memory p {
+            margin: 0;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #806069;
+        }
+
+
+        /* QUOTE */
+
+        .quote {
+            margin: 35px auto 10px;
+
+            max-width: 550px;
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 32px;
+
+            color: #815e67;
+        }
+
+
+        .quote-small {
+            font-size: 15px;
+
+            letter-spacing: 2px;
+
+            color: #a27b84;
+        }
+
+
+        /* BUTTON */
+
+        .button {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 14px 30px;
+
+            background: linear-gradient(
+                135deg,
+                #fff8f4,
+                #f7e3df
+            );
+
+            border: 1px solid #cba5a7;
+
+            border-radius: 40px;
+
+            color: #76545d;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 17px;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 6px 15px rgba(100,70,75,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+
+            transition: 0.25s ease;
+        }
+
+
+        .button:hover {
+            transform: translateY(-3px);
+
+            background: linear-gradient(
+                135deg,
+                #fffaf7,
+                #f3deda
+            );
+
+            box-shadow:
+                0 9px 20px rgba(100,70,75,0.15);
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding-top: 45px;
+            }
+
+
+            .scrapbook {
+                padding: 18px;
+            }
+
+
+            .scrapbook-inner {
+                padding: 28px 15px;
+            }
+
+
+            .memories {
+                grid-template-columns: 1fr;
+            }
+
+
+            .memory-photo {
+                height: 180px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- DECORATIONS -->
+
+    <div class="decor heart-one">♡</div>
+
+    <div class="decor heart-two">♡</div>
+
+    <div class="decor star-one">✦</div>
+
+    <div class="decor star-two">✧</div>
+
+
+
+    <main class="page">
+
+
+        <p class="tiny">
+            ♡ little pieces of us ♡
+        </p>
+
+
+        <h1>
+            Our Memories
+        </h1>
+
+
+        <p class="subtitle">
+            three years, countless laughs, and way too many moments
+        </p>
+
+
+        <div class="divider">
+            ୨୧ ───────── ୨୧
+        </div>
+
+
+
+        <!-- SCRAPBOOK -->
+
+        <div class="scrapbook">
+
+
+            <div class="scrapbook-inner">
+
+
+                <div class="scrapbook-title">
+                    Star ♡ Scara
+                </div>
+
+
+                <div class="scrapbook-date">
+                    THREE YEARS OF FRIENDSHIP
+                </div>
+
+
+
+                <!-- MEMORY CARDS -->
+
+                <div class="memories">
+
+
+                    <div class="memory">
+
+                        <div class="tape"></div>
+
+                        <div class="memory-photo">
+                            🎙️
+                        </div>
+
+                        <h2>
+                            The VCs
+                        </h2>
+
+                        <p>
+                            Some of my favorite memories are
+                            literally just us sitting in VC,
+                            talking about absolutely everything.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="memory">
+
+                        <div class="tape"></div>
+
+                        <div class="memory-photo">
+                            😂
+                        </div>
+
+                        <h2>
+                            Laughing Until We Couldn't
+                        </h2>
+
+                        <p>
+                            Those moments where we'd laugh so
+                            hard that neither of us could even
+                            explain what was funny anymore.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="memory">
+
+                        <div class="tape"></div>
+
+                        <div class="memory-photo">
+                            🌙
+                        </div>
+
+                        <h2>
+                            Twilight
+                        </h2>
+
+                        <p>
+                            A random Discord server somehow
+                            became the place where I met one
+                            of my favorite people.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="memory">
+
+                        <div class="tape"></div>
+
+                        <div class="memory-photo">
+                            🐄
+                        </div>
+
+                        <h2>
+                            Calm Your Farm
+                        </h2>
+
+                        <p>
+                            One tiny phrase that somehow became
+                            OUR phrase. You already know.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- BIG MEMORY -->
+
+                <div class="big-memory">
+
+                    <div class="emoji">
+                        ♡
+                    </div>
+
+                    <h2>
+                        We Made It Through
+                    </h2>
+
+                    <p>
+                        We've been through awkward moments,
+                        online drama, random chaos, and
+                        everything in between.
+                        Somehow, three years later,
+                        we're still here.
+                    </p>
+
+                </div>
+
+
+
+                <div class="quote">
+                    "Three years of memories,
+                    and somehow I still want more."
+                </div>
+
+
+                <div class="quote-small">
+                    ♡ HAPPY BIRTHDAY, SCARA ♡
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <a href="letter.html" class="button">
+            💌 A Letter For You ♡
+        </a>
+
+
+        <a href="index.html" class="button">
+            ← Back to Scara ♡
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>
