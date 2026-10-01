@@ -1,144 +1,290 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Music That Reminds Me of You ♡</title>
+  <title>Music That Reminds Me of You ♡</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #f8f1e7;
+      color: #6f4f4f;
+      font-family: Georgia, "Times New Roman", serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .music-page {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 50px 20px 70px;
+    }
+
+    .small-title {
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #9b7777;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: normal;
+      margin: 0 0 10px;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      font-style: italic;
+      margin-bottom: 35px;
+      color: #8b6868;
+    }
+
+    /* CASSETTE */
+    .cassette {
+      width: min(560px, 90%);
+      margin: 0 auto 40px;
+      padding: 28px;
+      background: #e8d7c8;
+      border: 2px solid #b99782;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(100, 70, 60, 0.15);
+      box-sizing: border-box;
+    }
+
+    .cassette-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #7c5a5a;
+    }
+
+    .cassette-label {
+      background: #f7eee4;
+      border: 1px solid #b99782;
+      border-radius: 8px;
+      padding: 25px 15px;
+      position: relative;
+    }
+
+    .cassette-label h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    .cassette-label p {
+      margin: 5px 0;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .cassette-line {
+      width: 80%;
+      height: 1px;
+      background: #b99782;
+      margin: 18px auto;
+    }
+
+    .side {
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    .reels {
+      display: flex;
+      justify-content: center;
+      gap: 85px;
+      margin-top: 25px;
+    }
+
+    .reel {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #f4e8dc;
+      border: 4px solid #a98272;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .reel::before {
+      content: "✦";
+      font-size: 24px;
+      color: #a98272;
+    }
+
+    /* SONG INFO */
+    .song-info {
+      margin: 35px auto 20px;
+    }
+
+    .song-info h2 {
+      font-size: 25px;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    .song-info p {
+      margin-top: 0;
+      font-style: italic;
+      color: #947575;
+    }
+
+    /* SPOTIFY */
+    .spotify-player {
+      max-width: 620px;
+      margin: 25px auto;
+    }
+
+    .spotify-player iframe {
+      display: block;
+      width: 100%;
+      min-height: 352px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .note {
+      margin: 30px auto;
+      max-width: 550px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #7e6262;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: 1px solid #b99782;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #6f4f4f;
+      background: #f7eee4;
+      transition: 0.2s;
+    }
+
+    .back-button:hover {
+      background: #ead9cb;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .cassette {
+        padding: 20px;
+      }
+
+      .reels {
+        gap: 45px;
+      }
+
+      .reel {
+        width: 58px;
+        height: 58px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<span class="decor d1">🎀</span>
-<span class="decor d2">♡</span>
+  <main class="music-page">
 
-<div class="page">
+    <div class="small-title">A little something for you</div>
 
-    <div class="content shell">
+    <h1>Music That Reminds Me of You ♡</h1>
 
-        <nav class="topnav">
-            <a href="index.html">♡</a>
-            <a href="story.html">Our Story</a>
-            <a href="memories.html">Memories</a>
-            <a class="active" href="music.html">Music</a>
-            <a href="letter.html">Letter</a>
-            <a href="gift.html">Gift</a>
-            <a href="final.html">♡</a>
-        </nav>
+    <p class="subtitle">
+      Some songs just feel like certain people.
+    </p>
 
 
-        <section class="card">
+    <!-- CASSETTE -->
+    <div class="cassette">
 
-            <div class="kicker">
-                a little song for you
-            </div>
+      <div class="cassette-top">
+        <span>STAR ♡</span>
+        <span>FOR SCARA</span>
+      </div>
 
-            <h2>
-                Music That Reminds Me of You ♡
-            </h2>
+      <div class="cassette-label">
 
-            <div class="ornament">
-                ୨୧ ───── ୨୧
-            </div>
+        <div class="side">SIDE A</div>
 
-            <p>
-                Some people remind you of a place.
-                <br>
-                Some remind you of a memory.
-                <br>
-                And some people somehow become a song.
-            </p>
+        <h2>FOR SCARA</h2>
 
+        <div class="cassette-line"></div>
 
-            <!-- CASSETTE -->
+        <p>MUSIC THAT REMINDS ME OF YOU</p>
+        <p>♡ ♡ ♡</p>
 
-            <div class="cassette-wrapper">
+      </div>
 
-                <div class="cassette">
-
-                    <div class="cassette-label">
-
-                        <div class="cassette-title">
-                            FOR SCARA
-                        </div>
-
-                        <div class="cassette-subtitle">
-                            STAR ♡
-                        </div>
-
-                        <div class="cassette-line"></div>
-
-                        <div class="cassette-song">
-                            MUSIC THAT REMINDS ME OF YOU
-                        </div>
-
-                    </div>
-
-
-                    <div class="cassette-tape">
-
-                        <div class="tape-window">
-
-                            <div class="reel left-reel">
-                                <div class="reel-hole"></div>
-                            </div>
-
-                            <div class="tape-strip"></div>
-
-                            <div class="reel right-reel">
-                                <div class="reel-hole"></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="cassette-bottom">
-                        ♡  A SIDE  ♡
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="music-player">
-
-                <p class="music-title">
-                    ♫  music that reminds me of you
-                </p>
-
-                <p class="music-subtitle">
-                    press play ♡
-                </p>
-
-                <audio controls>
-                    <source src="song.mp3" type="audio/mpeg">
-                    Your browser does not support the audio player.
-                </audio>
-
-            </div>
-
-
-            <p class="quote">
-                “Every time I hear this song,
-                I'll think of you.”
-            </p>
-
-
-            <a class="btn" href="letter.html">
-                Continue to your letter ♡
-            </a>
-
-        </section>
+      <div class="reels">
+        <div class="reel"></div>
+        <div class="reel"></div>
+      </div>
 
     </div>
 
-</div>
+
+    <!-- SONG -->
+    <div class="song-info">
+
+      <h2>Favorite Girl</h2>
+
+      <p>Justin Bieber</p>
+
+    </div>
+
+
+    <!-- OFFICIAL SPOTIFY PLAYER -->
+    <div class="spotify-player">
+
+      <iframe
+        data-testid="embed-iframe"
+        src="https://open.spotify.com/embed/track/4nTjkWK590oBDcnIxTr1mI?utm_source=generator&theme=0&si=5f935c40fa7d4b16"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+
+    <p class="note">
+      For all the late-night calls, random conversations,
+      stupid jokes, and memories that somehow became some
+      of my favorite ones. ♡
+    </p>
+
+
+    <a href="index.html" class="back-button">
+      ← Back to the beginning
+    </a>
+
+  </main>
 
 </body>
 </html>
+```
