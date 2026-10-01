@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,9 +22,7 @@
 
 
         body {
-
             margin: 0;
-
             min-height: 100vh;
 
             background:
@@ -34,505 +31,365 @@
                 #f8eee8;
 
             color: #6f5057;
-
             font-family: "Cormorant Garamond", serif;
-
             text-align: center;
-
             overflow-x: hidden;
-
         }
 
 
         /* DECORATIONS */
 
         .decor {
-
             position: fixed;
-
             pointer-events: none;
-
             z-index: 0;
-
             opacity: 0.7;
-
         }
 
 
         .heart-one {
-
             top: 70px;
-
             left: 8%;
-
             font-size: 30px;
-
             transform: rotate(-15deg);
-
         }
 
 
         .heart-two {
-
             top: 180px;
-
             right: 9%;
-
             font-size: 22px;
-
             transform: rotate(15deg);
-
         }
 
 
         .star-one {
-
             bottom: 100px;
-
             left: 12%;
-
             font-size: 20px;
-
         }
 
 
         .star-two {
-
             bottom: 180px;
-
             right: 12%;
-
             font-size: 26px;
-
         }
 
 
         /* MAIN */
 
         .music-page {
-
             position: relative;
-
             z-index: 1;
-
             width: 100%;
-
             max-width: 850px;
-
             margin: auto;
-
             padding: 65px 20px 80px;
-
         }
 
 
         .tiny {
-
             font-size: 13px;
-
             letter-spacing: 4px;
-
             text-transform: uppercase;
-
             color: #a27b84;
-
             margin-bottom: 12px;
-
         }
 
 
         h1 {
-
             margin: 0;
-
             font-family: "Great Vibes", cursive;
-
             font-size: clamp(48px, 8vw, 78px);
-
             font-weight: 400;
-
             color: #795963;
-
         }
 
 
         .subtitle {
-
             margin: 10px 0 35px;
-
             font-size: 19px;
-
             font-style: italic;
-
             color: #9b747c;
-
         }
 
 
         .divider {
-
             color: #bd919a;
-
             letter-spacing: 4px;
-
             margin-bottom: 35px;
-
         }
 
 
         /* CASSETTE */
 
         .cassette {
-
             position: relative;
-
             width: min(590px, 92%);
-
             margin: 0 auto 38px;
-
             padding: 30px 35px 25px;
 
             background: linear-gradient(
-
                 145deg,
-
                 #e8d3d1,
-
                 #d9bfc1
-
             );
 
             border: 2px solid #c29ba0;
-
             border-radius: 22px;
 
             box-shadow:
-
                 0 18px 35px rgba(100, 70, 75, 0.18),
-
                 inset 0 2px 0 rgba(255,255,255,0.65);
-
         }
 
 
         .cassette::before {
-
             content: "";
-
             position: absolute;
-
             inset: 9px;
-
             border: 1px solid rgba(255,255,255,0.55);
-
             border-radius: 16px;
-
             pointer-events: none;
-
         }
 
 
         .cassette-header {
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             margin-bottom: 22px;
-
             font-size: 12px;
-
             letter-spacing: 3px;
-
             color: #76565e;
-
         }
 
 
         .cassette-label {
-
             position: relative;
-
             padding: 28px 18px;
-
             background: #fbf4ed;
-
             border: 1px solid #c9a4a5;
-
             border-radius: 10px;
-
             box-shadow: inset 0 0 15px rgba(160,120,125,0.08);
-
         }
 
 
         .side {
-
             font-size: 11px;
-
             letter-spacing: 4px;
-
             margin-bottom: 8px;
-
             color: #a27881;
-
         }
 
 
         .cassette-label h2 {
-
             margin: 0;
-
             font-size: 30px;
-
             font-weight: 600;
-
             letter-spacing: 4px;
-
             color: #74535c;
-
         }
 
 
         .cassette-line {
-
             width: 70%;
-
             height: 1px;
-
             margin: 15px auto;
-
             background: #cba5a8;
-
         }
 
 
         .cassette-label p {
-
             margin: 5px;
-
             font-size: 12px;
-
             letter-spacing: 3px;
-
             color: #967178;
-
         }
 
 
         .reels {
-
             display: flex;
-
             justify-content: center;
-
             gap: 105px;
-
             margin-top: 25px;
-
         }
 
 
         .reel {
-
             width: 72px;
-
             height: 72px;
-
             border-radius: 50%;
-
             background: #eadbdd;
-
             border: 4px solid #ad858d;
-
             box-shadow: inset 0 0 0 7px #f5e9e8;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
         }
 
 
         .reel::after {
-
             content: "✦";
-
             font-size: 22px;
-
             color: #a67881;
-
         }
 
 
         /* SONG CARD */
 
         .song-card {
-
             width: min(620px, 92%);
-
             margin: 0 auto 30px;
-
             padding: 25px;
 
             background: rgba(255,248,242,0.8);
-
             border: 1px solid #d7b8b8;
-
             border-radius: 18px;
 
             box-shadow: 0 10px 25px rgba(100,70,75,0.08);
-
         }
 
 
         .song-card .music-note {
-
             font-size: 25px;
-
             margin-bottom: 5px;
-
         }
 
 
         .song-card h2 {
-
             margin: 0;
-
             font-size: 29px;
-
             font-weight: 600;
-
             color: #76545e;
-
         }
 
 
         .artist {
-
             margin: 3px 0 0;
-
             font-size: 17px;
-
             font-style: italic;
-
             color: #a07780;
-
         }
 
 
         /* SPOTIFY */
 
         .spotify {
-
             width: min(620px, 92%);
-
             margin: 0 auto 35px;
-
         }
 
 
         .spotify iframe {
-
             width: 100%;
-
             height: 352px;
-
             border: none;
-
             border-radius: 14px;
-
             display: block;
 
             box-shadow: 0 10px 25px rgba(70,50,55,0.12);
-
         }
 
 
         /* MESSAGE */
 
         .message {
-
             width: min(600px, 90%);
-
             margin: 35px auto;
-
             padding: 25px 30px;
 
             background: rgba(255,248,242,0.7);
-
             border-radius: 18px;
-
             border: 1px solid #dec3c2;
-
         }
 
 
         .message p {
-
             margin: 7px 0;
-
             font-size: 18px;
-
             line-height: 1.7;
-
         }
 
 
         .message .special {
-
             font-family: "Great Vibes", cursive;
-
             font-size: 31px;
-
             color: #815e67;
-
             margin-top: 15px;
-
         }
 
 
-        /* BACK BUTTON */
+        /* BUTTONS */
 
-        .back {
-
+        .cute-button {
             display: inline-block;
+            margin: 10px 5px 0;
+            padding: 14px 30px;
 
-            margin-top: 15px;
-
-            padding: 13px 27px;
-
-            background: #f8e9e4;
+            background: linear-gradient(
+                135deg,
+                #fff8f4,
+                #f7e3df
+            );
 
             border: 1px solid #cba5a7;
-
             border-radius: 40px;
 
             color: #76545d;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 17px;
+            font-weight: 500;
 
             text-decoration: none;
+            cursor: pointer;
 
+            box-shadow:
+                0 6px 15px rgba(100,70,75,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+
+            transition: 0.25s ease;
+        }
+
+
+        .cute-button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(
+                135deg,
+                #fffaf7,
+                #f3deda
+            );
+
+            box-shadow:
+                0 9px 20px rgba(100,70,75,0.15),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+
+
+        .back {
+            display: inline-block;
+            margin: 10px 5px 0;
+            padding: 13px 27px;
+
+            background: #f8e9e4;
+            border: 1px solid #cba5a7;
+            border-radius: 40px;
+
+            color: #76545d;
+            text-decoration: none;
             font-size: 16px;
 
             transition: 0.25s ease;
-
             box-shadow: 0 5px 12px rgba(100,70,75,0.08);
-
         }
 
 
         .back:hover {
-
             transform: translateY(-3px);
-
             background: #f3deda;
-
             box-shadow: 0 8px 18px rgba(100,70,75,0.14);
-
         }
 
 
@@ -541,39 +398,28 @@
         @media (max-width: 600px) {
 
             .music-page {
-
                 padding-top: 45px;
-
             }
 
 
             .cassette {
-
                 padding: 25px 18px 22px;
-
             }
 
 
             .reels {
-
                 gap: 55px;
-
             }
 
 
             .reel {
-
                 width: 58px;
-
                 height: 58px;
-
             }
 
 
             .message {
-
                 padding: 20px;
-
             }
 
         }
@@ -737,12 +583,13 @@
 
 
 
-        <!-- BACK -->
-<a href="story.html" class="back">
-    🌙 How We Met ♡
-</a>
+        <!-- NAVIGATION -->
 
-        
+        <a href="story.html" class="cute-button">
+            🌙 How We Met ♡
+        </a>
+
+
         <a href="index.html" class="back">
             ← Back to Scara ♡
         </a>
@@ -754,4 +601,3 @@
 </body>
 
 </html>
-```
