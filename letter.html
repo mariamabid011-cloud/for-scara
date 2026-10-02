@@ -23,20 +23,10 @@
             margin: 0;
             min-height: 100vh;
 
-            background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255,255,255,0.8),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 80% 75%,
-                    rgba(245,215,215,0.45),
-                    transparent 32%
-                ),
-                #f8eee9;
+            background: #f8eee9;
 
             color: #76545d;
+
             font-family: "Cormorant Garamond", serif;
 
             overflow-x: hidden;
@@ -47,36 +37,36 @@
 
         .decor {
             position: fixed;
-            pointer-events: none;
 
-            color: #b98c94;
+            color: #c39ba2;
+
             opacity: 0.45;
 
-            z-index: 0;
+            pointer-events: none;
         }
 
         .heart-one {
-            top: 13%;
+            top: 15%;
             left: 8%;
-            font-size: 25px;
+            font-size: 24px;
         }
 
         .heart-two {
-            top: 22%;
+            top: 25%;
             right: 9%;
-            font-size: 19px;
+            font-size: 18px;
         }
 
         .star-one {
-            bottom: 14%;
-            left: 11%;
-            font-size: 18px;
+            bottom: 15%;
+            left: 12%;
+            font-size: 17px;
         }
 
         .star-two {
             bottom: 10%;
             right: 12%;
-            font-size: 23px;
+            font-size: 22px;
         }
 
 
@@ -90,16 +80,15 @@
             align-items: center;
 
             padding: 55px 20px 70px;
-
-            position: relative;
-            z-index: 1;
         }
 
         .tiny {
             margin: 0 0 8px;
 
             font-size: 13px;
+
             letter-spacing: 4px;
+
             text-transform: uppercase;
 
             color: #a27b84;
@@ -109,16 +98,19 @@
             margin: 0;
 
             font-family: "Great Vibes", cursive;
+
             font-size: clamp(50px, 9vw, 78px);
+
             font-weight: 400;
 
             color: #795963;
         }
 
         .subtitle {
-            margin: 8px 0 35px;
+            margin: 8px 0 45px;
 
             font-size: 18px;
+
             font-style: italic;
 
             color: #9b747c;
@@ -128,24 +120,26 @@
         /* ENVELOPE AREA */
 
         .envelope-area {
-            width: min(560px, 94vw);
-            height: 390px;
+            width: min(520px, 90vw);
 
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
+            height: 420px;
 
             position: relative;
 
-            margin-top: 5px;
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-end;
         }
 
 
         /* ENVELOPE */
 
         .envelope {
-            width: min(520px, 88vw);
-            height: 300px;
+            width: 100%;
+
+            height: 260px;
 
             position: relative;
 
@@ -157,8 +151,7 @@
 
         .envelope:hover {
             transform:
-                translateY(-7px)
-                rotate(-0.5deg);
+                translateY(-7px);
         }
 
         .envelope.opened:hover {
@@ -166,40 +159,46 @@
         }
 
 
-        /* THE LETTER */
+        /*
+            THE LETTER
+
+            It starts completely underneath
+            the envelope.
+        */
 
         .letter {
             position: absolute;
 
-            width: 86%;
-            height: 290px;
+            width: 82%;
 
-            left: 7%;
-            bottom: 20px;
+            height: 300px;
 
-            padding: 27px 30px;
+            left: 9%;
+
+            bottom: 25px;
+
+            padding: 28px;
 
             background: #fffaf5;
 
             border: 1px solid #dfc8c2;
 
             box-shadow:
-                0 8px 22px rgba(90,65,70,0.12);
+                0 8px 20px rgba(100,70,75,0.12);
 
-            z-index: 2;
+            z-index: 1;
 
-            /* COMPLETELY INSIDE THE ENVELOPE */
-            transform: translateY(175px);
+            transform:
+                translateY(100%);
 
             transition:
-                transform 1s cubic-bezier(.65,0,.25,1),
-                z-index 0s linear 0.45s;
-
-            text-align: left;
+                transform 0.9s cubic-bezier(.65,0,.25,1);
         }
+
 
         .letter-lines {
             position: absolute;
+
             inset: 0;
 
             background:
@@ -207,37 +206,43 @@
                     to bottom,
                     transparent 0,
                     transparent 31px,
-                    rgba(210,185,180,0.35) 32px
+                    rgba(210,185,180,0.3) 32px
                 );
 
             pointer-events: none;
         }
 
+
         .letter-content {
             position: relative;
+
             z-index: 2;
         }
+
 
         .letter-title {
             margin-bottom: 12px;
 
             font-family: "Great Vibes", cursive;
+
             font-size: 34px;
 
             color: #8e626b;
         }
 
+
         .letter-text {
             margin: 0;
 
             font-size: 16px;
+
             line-height: 1.55;
 
             color: #76545d;
         }
 
 
-        /* ENVELOPE BODY */
+        /* SIMPLE ENVELOPE BODY */
 
         .envelope-body {
             position: absolute;
@@ -248,61 +253,45 @@
 
             height: 210px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #e8caca,
-                    #d5adb1
-                );
+            background: #dfb9bc;
 
-            border-radius: 9px 9px 15px 15px;
+            border-radius: 10px;
 
             box-shadow:
-                0 18px 35px rgba(100,70,75,0.18);
+                0 18px 35px rgba(100,70,75,0.17);
 
-            z-index: 4;
+            z-index: 3;
 
             overflow: hidden;
         }
 
 
-        /* LEFT FOLD */
-
-        .envelope-body::before {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 0;
-            height: 0;
-
-            border-left: 260px solid #e1bfc0;
-            border-top: 210px solid transparent;
-        }
-
-
-        /* RIGHT FOLD */
+        /*
+            SIMPLE FRONT FOLD
+        */
 
         .envelope-body::after {
             content: "";
 
             position: absolute;
 
+            left: 0;
             right: 0;
             bottom: 0;
 
-            width: 0;
-            height: 0;
+            height: 150px;
 
-            border-right: 260px solid #cfa6aa;
-            border-top: 210px solid transparent;
+            background: #d8afb3;
+
+            clip-path: polygon(
+                0 0,
+                50% 100%,
+                100% 0
+            );
         }
 
 
-        /* TOP FLAP */
+        /* FLAP */
 
         .flap {
             position: absolute;
@@ -310,19 +299,23 @@
             top: 0;
             left: 0;
 
-            width: 0;
-            height: 0;
+            width: 100%;
+            height: 130px;
 
-            border-left: 260px solid transparent;
-            border-right: 260px solid transparent;
-            border-top: 145px solid #d2a8ac;
+            background: #d3a9ad;
 
-            transform-origin: top center;
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                50% 100%
+            );
+
+            transform-origin: top;
 
             transition:
-                transform 0.85s cubic-bezier(.65,0,.25,1);
+                transform 0.8s ease;
 
-            z-index: 6;
+            z-index: 5;
         }
 
 
@@ -331,13 +324,14 @@
         .seal {
             position: absolute;
 
-            width: 58px;
-            height: 58px;
+            width: 56px;
+            height: 56px;
 
             left: 50%;
-            top: 105px;
+            top: 100px;
 
-            transform: translateX(-50%);
+            transform:
+                translateX(-50%);
 
             border-radius: 50%;
 
@@ -346,49 +340,40 @@
             color: white;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             font-family: "Great Vibes", cursive;
-            font-size: 26px;
 
-            z-index: 7;
+            font-size: 25px;
+
+            z-index: 6;
 
             box-shadow:
                 0 5px 12px rgba(90,60,65,0.18);
 
             transition:
-                opacity 0.35s ease,
-                transform 0.4s ease;
+                opacity 0.3s ease;
         }
 
 
         /* OPENED */
 
         .envelope.opened .flap {
-            transform: rotateX(180deg);
+            transform:
+                rotateX(180deg);
         }
 
         .envelope.opened .seal {
             opacity: 0;
-
-            transform:
-                translateX(-50%)
-                scale(0.7);
         }
 
-        /*
-            LETTER COMES OUT
-            AND MOVES ABOVE THE ENVELOPE
-        */
-
         .envelope.opened .letter {
-            transform: translateY(-205px);
+            transform:
+                translateY(-230px);
 
-            z-index: 5;
-
-            transition:
-                transform 1s cubic-bezier(.65,0,.25,1);
+            z-index: 7;
         }
 
 
@@ -400,34 +385,30 @@
             padding: 13px 28px;
 
             border: 1px solid #cba5a7;
+
             border-radius: 40px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff8f4,
-                    #f7e3df
-                );
+            background: #fff8f4;
 
             color: #76545d;
 
             font-family: "Cormorant Garamond", serif;
+
             font-size: 17px;
 
             cursor: pointer;
-
-            box-shadow:
-                0 6px 15px rgba(100,70,75,0.10);
 
             transition: 0.25s ease;
         }
 
         .open-button:hover {
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
         }
 
         .open-button.hidden {
             opacity: 0;
+
             pointer-events: none;
         }
 
@@ -439,19 +420,21 @@
 
             opacity: 0;
 
-            transform: translateY(12px);
+            transform:
+                translateY(10px);
 
             pointer-events: none;
 
             transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
+                opacity 0.6s ease,
+                transform 0.6s ease;
         }
 
         .next-area.show {
             opacity: 1;
 
-            transform: translateY(0);
+            transform:
+                translateY(0);
 
             pointer-events: auto;
         }
@@ -462,14 +445,10 @@
             padding: 13px 28px;
 
             border: 1px solid #cba5a7;
+
             border-radius: 40px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff8f4,
-                    #f7e3df
-                );
+            background: #fff8f4;
 
             color: #76545d;
 
@@ -477,14 +456,12 @@
 
             font-size: 17px;
 
-            box-shadow:
-                0 6px 15px rgba(100,70,75,0.10);
-
             transition: 0.25s ease;
         }
 
         .next-button:hover {
-            transform: translateY(-3px);
+            transform:
+                translateY(-3px);
         }
 
 
@@ -498,13 +475,6 @@
             text-decoration: none;
 
             font-size: 16px;
-
-            transition: 0.25s ease;
-        }
-
-        .back:hover {
-            color: #76545d;
-            transform: translateY(-2px);
         }
 
 
@@ -517,39 +487,29 @@
             }
 
             .envelope-area {
-                height: 360px;
+                height: 390px;
             }
 
             .envelope {
-                height: 275px;
+                height: 230px;
+            }
+
+            .envelope-body {
+                height: 185px;
             }
 
             .letter {
                 height: 270px;
-                padding: 24px 22px;
+
+                padding: 24px;
             }
 
             .letter-text {
                 font-size: 15px;
             }
 
-            .envelope-body {
-                height: 195px;
-            }
-
             .flap {
-                border-left-width: 44vw;
-                border-right-width: 44vw;
-            }
-
-            .envelope-body::before {
-                border-left-width: 44vw;
-                border-top-width: 195px;
-            }
-
-            .envelope-body::after {
-                border-right-width: 44vw;
-                border-top-width: 195px;
+                height: 115px;
             }
         }
 
@@ -589,7 +549,6 @@
         <!-- ENVELOPE -->
 
         <div class="envelope-area">
-
 
             <div
                 class="envelope"
@@ -645,7 +604,7 @@
                 </div>
 
 
-                <!-- ENVELOPE BODY -->
+                <!-- ENVELOPE -->
 
                 <div class="envelope-body"></div>
 
@@ -667,7 +626,7 @@
         </div>
 
 
-        <!-- OPEN -->
+        <!-- OPEN BUTTON -->
 
         <button
             class="open-button"
@@ -733,7 +692,6 @@
 
 
             envelope.classList.add("opened");
-
 
             openButton.classList.add("hidden");
 
