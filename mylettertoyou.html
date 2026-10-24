@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Platonic Soulmate ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #fffaf3;
+      --ivory: #fff5e9;
+      --pink: #e9b7b5;
+      --deep-pink: #bd777f;
+      --peach: #f4d2bf;
+      --brown: #735b52;
+      --soft-brown: #9b8074;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at top left, #fce9df 0%, transparent 40%),
+        radial-gradient(ellipse at bottom right, #f8e3e2 0%, transparent 40%),
+        var(--cream);
+      color: var(--brown);
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+    }
+
+    .flower-garden {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 76px;
+      pointer-events: none;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      opacity: 0.8;
+      font-size: 30px;
+      filter: drop-shadow(0 3px 5px #c99c9b33);
+    }
+
+    .flower-garden.left {
+      left: 4px;
+    }
+
+    .flower-garden.right {
+      right: 4px;
+    }
+
+    .flower-garden span {
+      display: block;
+      animation: sway 4s ease-in-out infinite alternate;
+    }
+
+    .flower-garden span:nth-child(even) {
+      animation-delay: -2s;
+      font-size: 24px;
+    }
+
+    .flower-garden span:nth-child(3n) {
+      animation-delay: -1s;
+      font-size: 34px;
+    }
+
+    @keyframes sway {
+      from { transform: rotate(-9deg) translateY(-3px); }
+      to { transform: rotate(9deg) translateY(5px); }
+    }
+
+    .petal {
+      position: fixed;
+      top: -35px;
+      z-index: 5;
+      pointer-events: none;
+      color: #e9a9ad;
+      opacity: 0.7;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translate3d(0, -10px, 0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.75;
+      }
+      90% {
+        opacity: 0.65;
+      }
+      100% {
+        transform: translate3d(65px, 110vh, 0) rotate(540deg);
+        opacity: 0;
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(760px, calc(100% - 110px));
+      margin: 0 auto;
+      padding: 65px 0 45px;
+    }
+
+    .top-decoration {
+      text-align: center;
+      color: var(--deep-pink);
+      font-size: 20px;
+      letter-spacing: 9px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      color: var(--soft-brown);
+      margin-bottom: 13px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(46px, 8vw, 78px);
+      line-height: 1.2;
+      font-weight: 400;
+      color: var(--deep-pink);
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--soft-brown);
+      margin-bottom: 30px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 25px auto;
+      color: var(--deep-pink);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      width: 75px;
+      background: linear-gradient(to right, transparent, #d9aaa6);
+    }
+
+    .divider::after {
+      background: linear-gradient(to left, transparent, #d9aaa6);
+    }
+
+    .letter-card {
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid #eed9ce;
+      border-radius: 5px;
+      padding: clamp(25px, 5vw, 55px);
+      box-shadow:
+        0 15px 45px rgba(154, 109, 101, 0.08),
+        inset 0 0 35px rgba(250, 232, 220, 0.2);
+      position: relative;
+    }
+
+    .letter-card::before {
+      content: "♡";
+      position: absolute;
+      top: 13px;
+      right: 19px;
+      font-size: 25px;
+      color: #dfb2b0;
+    }
+
+    .letter-greeting {
+      font-size: 29px;
+      font-style: italic;
+      color: var(--deep-pink);
+      margin-bottom: 22px;
+    }
+
+    .letter-card p {
+      font-size: 20px;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .letter-card p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      color: #b86f7a;
+      font-style: italic;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 34px;
+      color: var(--deep-pink);
+    }
+
+    .signature .signoff {
+      font-size: 20px;
+      font-style: italic;
+      margin-bottom: 3px;
+    }
+
+    .signature .name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      line-height: 1.2;
+    }
+
+    .ending {
+      text-align: center;
+      margin-top: 42px;
+      padding: 0 10px;
+    }
+
+    .ending .flowers {
+      font-size: 29px;
+      letter-spacing: 8px;
+      margin-bottom: 18px;
+    }
+
+    .ending h2 {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: clamp(38px, 6vw, 54px);
+      color: var(--deep-pink);
+      margin-bottom: 12px;
+    }
+
+    .ending p {
+      font-size: 19px;
+      line-height: 1.7;
+      font-style: italic;
+      color: var(--soft-brown);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 11px 23px;
+      border: 1px solid #dfb5b0;
+      border-radius: 30px;
+      text-decoration: none;
+      color: var(--deep-pink);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: #f9e9e5;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 35px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #b49a8d;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        width: calc(100% - 76px);
+        padding-top: 42px;
+      }
+
+      .flower-garden {
+        width: 38px;
+        font-size: 19px;
+      }
+
+      .flower-garden span:nth-child(even) {
+        font-size: 17px;
+      }
+
+      .flower-garden span:nth-child(3n) {
+        font-size: 23px;
+      }
+
+      .letter-card {
+        padding: 25px 20px;
+      }
+
+      .letter-card p {
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .letter-greeting {
+        font-size: 25px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .ending .flowers {
+        letter-spacing: 3px;
+        font-size: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Flowers growing along the sides -->
+  <div class="flower-garden left" aria-hidden="true">
+    <span>🌷</span>
+    <span>🌸</span>
+    <span>🌼</span>
+    <span>🌺</span>
+    <span>🌷</span>
+    <span>🪷</span>
+    <span>🌸</span>
+    <span>🌼</span>
+    <span>🌷</span>
+  </div>
+
+  <div class="flower-garden right" aria-hidden="true">
+    <span>🌸</span>
+    <span>🌷</span>
+    <span>🌼</span>
+    <span>🪷</span>
+    <span>🌺</span>
+    <span>🌸</span>
+    <span>🌷</span>
+    <span>🌼</span>
+    <span>🌸</span>
+  </div>
+
+  <main class="page">
+    <div class="top-decoration">♡ ✿ ♡</div>
+
+    <p class="eyebrow">A little piece of my heart</p>
+
+    <h1>For My Platonic Soulmate</h1>
+
+    <p class="subtitle">
+      To my Scara, on your special day ♡
+    </p>
+
+    <div class="divider">✿</div>
+
+    <article class="letter-card">
+      <p class="letter-greeting">My dearest Scara,</p>
+
+      <p>
+        Happy birthday to one of the most special people in my life.
+        ♡ I wish I could put into words just how much you mean to me,
+        but somehow, words never seem to be enough when it comes to
+        the people who matter the most.
+      </p>
+
+      <p>
+        I'm so grateful that life gave me you. Out of all the people
+        in this world, I'm grateful that I get to know you, care about
+        you, laugh with you, and call you my best friend. Sometimes I
+        think about how lucky I am to have someone like you in my life,
+        and I genuinely hope you know how loved and appreciated you are.
+      </p>
+
+      <p>
+        You're not just my best friend. You're my
+        <span class="highlight">platonic soulmate</span>.
+        You're someone who means so much to me in a way that is
+        completely our own. You're someone I want to see happy, someone
+        whose dreams I want to see come true, and someone I'll always
+        wish the very best for. Having you in my life is something I
+        will never take for granted.
+      </p>
+
+      <p>
+        And Scara, I want you to remember something, especially on the
+        days when life doesn't feel so kind: <span class="highlight">
+        you will always have someone in your corner in me.</span>
+        No matter what you're going through, no matter how confusing
+        things get, and no matter how far apart we are, I'll always
+        care about you. You don't have to be happy all the time around
+        me. You don't have to pretend that everything is okay when it
+        isn't. You can have difficult days, make mistakes, feel lost,
+        or simply need someone to listen. You deserve that same care
+        and understanding on your hardest days as you do on your best
+        ones.
+      </p>
+
+      <p>
+        I might not always have the perfect words to say, and I might
+        not always know how to make everything better, but I'll do my
+        best to listen, to understand, and to remind you that you
+        matter. I'll celebrate your little victories with you, cheer
+        you on when you're chasing your dreams, and remind you of how
+        capable you are when you start doubting yourself. I'll be
+        rooting for you even when you can't see how far you've come.
+      </p>
+
+      <p>
+        I hope you never feel like you have to earn my care by being
+        useful, funny, strong, or okay. You are worth caring about
+        simply because you're you. You don't have to prove anything
+        to deserve kindness. And even when we can't talk as much as
+        we'd like, or when life gets busy and everything around us
+        changes, I will still wish good things for you. Our lives
+        won't always look the same, but that doesn't make the
+        friendship we share any less meaningful to me.
+      </p>
+
+      <p>
+        One of the things I wish for you most is that you learn to see
+        yourself with the same kindness that the people who love you
+        see you with. I hope you give yourself credit for trying. I
+        hope you become proud of the person you're growing into. I
+        hope you find people and places that make you feel safe enough
+        to be yourself, and I hope you never settle for a life where
+        you have to make yourself smaller just to be accepted.
+      </p>
+
+      <p>
+        I hope this new year of your life brings you the kind of
+        happiness that stays, the kind of peace that lets you breathe
+        a little easier, and the kind of love that never makes you
+        question whether you're worthy of it. I hope your dreams get
+        closer, your worries get lighter, and you find beautiful
+        reasons to smile even on ordinary days. And whenever something
+        wonderful happens to you, I hope you know that there is
+        someone out here who will be genuinely happy for you.
+      </p>
+
+      <p>
+        I wish distance weren't a thing, because if I could, I'd want
+        to celebrate with you in person, give you your gift, and make
+        sure your birthday felt as special as you are to me. But even
+        from far away, I hope this little corner of the internet can
+        remind you that someone thought about you, put their heart
+        into something for you, and wanted you to have something that
+        you could keep.
+      </p>
+
+      <p>
+        Thank you for being you. Thank you for being someone I can
+        treasure as my best friend. Thank you for the happiness you
+        bring into my life simply by being part of it. I hope I can
+        give you even a little of the comfort, happiness, and warmth
+        that you deserve.
+      </p>
+
+      <p>
+        No matter where life takes us, I will always be rooting for
+        you. I'll always hope you find happiness, reach your goals,
+        and become someone you're proud of. And whenever you need a
+        reminder that someone believes in you, I hope you'll remember
+        that you have me.
+      </p>
+
+      <p>
+        So, happy birthday, my platonic soulmate. I am so, so glad
+        that you're my person in this beautiful friendship of ours.
+        If I could wish one thing for you today, it would be that you
+        could see yourself through my eyes, even for a moment, and
+        understand just how precious you are.
+      </p>
+
+      <p>
+        Here's to more birthdays, more memories, more laughter, more
+        growing, and more years of having each other in this big,
+        complicated world. Wherever we end up, I hope we always
+        remember how lucky we were to find a friendship like this.
+      </p>
+
+      <p>
+        I love you so much, Scara. Platonically, endlessly, and with
+        all the love my heart has for a best friend. I'm proud to call
+        you my platonic soulmate, and I hope this birthday is just
+        the beginning of a year that is gentle and beautiful to you.
+      </p>
+
+      <div class="signature">
+        <p class="signoff">With all my love, always,</p>
+        <p class="name">Your Star ♡</p>
+      </div>
+    </article>
+
+    <section class="ending">
+      <div class="divider">♡</div>
+      <div class="flowers" aria-hidden="true">🌷 🌸 🪷 🌸 🌷</div>
+
+      <h2>Happy Birthday, Scara</h2>
+
+      <p>
+        No matter how far apart we are,<br>
+        a little piece of my heart will always be cheering for you.
+      </p>
+
+      <p style="margin-top: 16px;">
+        Forever grateful for my platonic soulmate. ♡
+      </p>
+
+      <a class="back-link" href="index.html">← Back to your birthday page</a>
+    </section>
+
+    <footer>
+      MADE WITH LOVE · FROM STAR ♡
+    </footer>
+  </main>
+
+  <script>
+    const petalSymbols = ["🌸", "✿", "❀", "♡"];
+
+    function createPetal() {
+      const petal = document.createElement("span");
+      petal.className = "petal";
+      petal.textContent =
+        petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.fontSize = (12 + Math.random() * 13) + "px";
+      petal.style.animationDuration = (8 + Math.random() * 9) + "s";
+
+      document.body.appendChild(petal);
+
+      petal.addEventListener("animationend", () => {
+        petal.remove();
+      });
+    }
+
+    // Soft, slowly falling petals
+    for (let i = 0; i < 12; i++) {
+      setTimeout(createPetal, i * 500);
+    }
+
+    setInterval(createPetal, 950);
+  </script>
+
+</body>
+</html>
